@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BCM - Proposta de Investimento - Grupo Gradual - Protocolos Específicos</title>
+<style>
+@page { size: 13.333in 7.5in; margin: 0; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #0d1b2a; color: #243043; }
+.slide { width: 13.333in; height: 7.5in; position: relative; overflow: hidden; padding: 0.66in 0.55in 0.44in; page-break-after: always; background: #F8F9FA; }
+.slide:last-child { page-break-after: auto; }
+.dark { color: #fff; background: radial-gradient(circle at 88% 12%, rgba(45,155,138,.32), transparent 32%), linear-gradient(135deg, #102642 0%, #1B3A6B 62%, #101827 100%); }
+.teal-bg { color: #fff; background: radial-gradient(circle at 15% 8%, rgba(245,166,35,.26), transparent 28%), linear-gradient(135deg, #102642 0%, #2D9B8A 95%); }
+.white { background: #F8F9FA; }
+.kicker { font-size: 10.5pt; letter-spacing: .17em; text-transform: uppercase; font-weight: 800; color: #2D9B8A; margin-bottom: 0.1in; }
+.dark .kicker, .teal-bg .kicker { color: #F5A623; }
+h1 { margin: 0; font-size: 36pt; line-height: 1.02; letter-spacing: -0.035em; color: #1B3A6B; }
+.dark h1, .teal-bg h1 { color: #fff; }
+h2 { margin: .09in 0 .18in; font-size: 17pt; line-height: 1.25; color: #43526a; font-weight: 500; }
+.dark h2, .teal-bg h2 { color: rgba(255,255,255,.84); }
+h3 { margin: 0 0 .08in; font-size: 15.5pt; color: #1B3A6B; }
+.dark h3, .teal-bg h3 { color: #fff; }
+p { margin: 0 0 .11in; font-size: 12pt; line-height: 1.38; color: #2C2C3E; }
+.dark p, .teal-bg p { color: rgba(255,255,255,.88); }
+.small { font-size: 9.7pt; line-height: 1.35; }
+.tiny { font-size: 8.5pt; line-height: 1.26; }
+.big { font-size: 18pt; line-height: 1.25; font-weight: 700; }
+.hero { font-size: 67pt; line-height: .92; font-weight: 900; letter-spacing: -0.055em; }
+.subhero { font-size: 18pt; line-height: 1.25; max-width: 8.2in; margin-top: .18in; color: rgba(255,255,255,.87); }
+.brand { position: absolute; top: .18in; left: .55in; display: flex; align-items: center; gap: .09in; font-weight: 900; color: inherit; }
+.brand-mark { width: .34in; height: .34in; border-radius: 10px; display: grid; place-items: center; background: linear-gradient(135deg, #2D9B8A, #F5A623); color: #102642; font-size: 13pt; letter-spacing: -.05em; }
+.brand span { font-size: 8.5pt; letter-spacing: .15em; text-transform: uppercase; opacity: .78; }
+.footer { position: absolute; left: .55in; right: .55in; bottom: .20in; display: flex; justify-content: space-between; align-items: center; font-size: 8.5pt; color: rgba(40,49,63,.58); }
+.dark .footer, .teal-bg .footer { color: rgba(255,255,255,.63); }
+.page-no { font-weight: 700; color: #F5A623; }
+.grid { display: grid; gap: .16in; }
+.grid-2 { grid-template-columns: 1fr 1fr; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.card { background: rgba(255,255,255,.92); border: 1px solid rgba(27,58,107,.12); border-radius: 18px; padding: .18in; box-shadow: 0 10px 28px rgba(16,38,66,.08); }
+.dark .card, .teal-bg .card { background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.18); box-shadow: none; backdrop-filter: blur(8px); }
+.card.teal { border-top: 5px solid #2D9B8A; }
+.card.amber { border-top: 5px solid #F5A623; }
+.card.purple { border-top: 5px solid #8B7EC8; }
+.card.blue { border-top: 5px solid #1B3A6B; }
+.metric { font-size: 31pt; font-weight: 900; line-height: 1; color: #F5A623; letter-spacing: -0.04em; }
+.metric-label { font-size: 10.5pt; line-height: 1.25; margin-top: .05in; color: #56657b; }
+.dark .metric-label, .teal-bg .metric-label { color: rgba(255,255,255,.78); }
+.accent { color: #F5A623; font-weight: 900; }
+.teal-text { color: #2D9B8A; font-weight: 800; }
+.purple-text { color: #8B7EC8; font-weight: 800; }
+.blue-text { color: #1B3A6B; font-weight: 900; }
+.badge { display: inline-block; padding: .055in .12in; border-radius: 999px; font-size: 8.5pt; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; background: rgba(45,155,138,.12); color: #2D9B8A; }
+.dark .badge, .teal-bg .badge { background: rgba(245,166,35,.18); color: #F5A623; }
+.callout { border-left: 6px solid #F5A623; background: rgba(245,166,35,.11); border-radius: 12px; padding: .15in .18in; }
+.dark .callout, .teal-bg .callout { background: rgba(245,166,35,.12); }
+.callout p { margin: 0; font-weight: 700; }
+ul { margin: .04in 0 0 .16in; padding: 0; }
+li { margin: 0 0 .065in; font-size: 10.8pt; line-height: 1.28; }
+.dark li, .teal-bg li { color: rgba(255,255,255,.84); }
+table { width: 100%; border-collapse: collapse; font-size: 9.7pt; color: #2C2C3E; }
+th { text-align: left; padding: .08in .09in; background: #1B3A6B; color: #fff; font-size: 8.5pt; letter-spacing: .055em; text-transform: uppercase; }
+td { padding: .08in .09in; border-bottom: 1px solid rgba(27,58,107,.13); vertical-align: top; }
+tr:nth-child(even) td { background: rgba(27,58,107,.035); }
+.dark table, .teal-bg table { color: #fff; }
+.dark th, .teal-bg th { background: rgba(245,166,35,.9); color: #102642; }
+.dark td, .teal-bg td { border-bottom: 1px solid rgba(255,255,255,.16); }
+.dark tr:nth-child(even) td, .teal-bg tr:nth-child(even) td { background: rgba(255,255,255,.05); }
+.flow { display: flex; align-items: stretch; gap: .08in; margin-top: .14in; }
+.flow .step { flex: 1; padding: .13in; border-radius: 16px; background: #fff; border: 1px solid rgba(27,58,107,.12); min-height: .9in; }
+.flow .arrow { display: grid; place-items: center; font-size: 20pt; color: #F5A623; font-weight: 900; }
+.step strong { color: #1B3A6B; font-size: 11pt; }
+.step span { display: block; margin-top: .05in; font-size: 9.3pt; line-height: 1.24; color: #56657b; }
+.dark .flow .step, .teal-bg .flow .step { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.18); }
+.dark .step strong, .teal-bg .step strong { color: #fff; }
+.dark .step span, .teal-bg .step span { color: rgba(255,255,255,.75); }
+.ribbon { position: absolute; top: .42in; right: -.75in; transform: rotate(36deg); width: 3.6in; text-align: center; background: #F5A623; color: #102642; padding: .07in; font-size: 8.6pt; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; box-shadow: 0 12px 28px rgba(0,0,0,.18); }
+.mini-title { font-size: 10.4pt; font-weight: 900; color: #1B3A6B; margin-bottom: .05in; letter-spacing: .02em; }
+.dark .mini-title, .teal-bg .mini-title { color: #fff; }
+.divider { height: 1px; background: rgba(27,58,107,.14); margin: .16in 0; }
+.dark .divider, .teal-bg .divider { background: rgba(255,255,255,.18); }
+.quote { font-size: 18pt; line-height: 1.26; font-weight: 700; letter-spacing: -0.02em; color: #1B3A6B; }
+.dark .quote, .teal-bg .quote { color: #fff; }
+.person { display:flex; gap:.16in; align-items:center; }
+.person img { width: .96in; height: .96in; object-fit: cover; border-radius: 18px; border: 3px solid rgba(45,155,138,.45); }
+.cover-grid { display:grid; grid-template-columns: 1.15fr .85fr; gap:.35in; height: 100%; align-items:center; }
+.cover-panel { background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.18); border-radius: 28px; padding: .28in; }
+.timeline { position:relative; padding-left:.28in; }
+.timeline:before { content:""; position:absolute; left:.06in; top:.04in; bottom:.04in; width:3px; background: linear-gradient(#2D9B8A, #F5A623); border-radius: 99px; }
+.t-item { position:relative; margin-bottom:.13in; padding:.12in .16in; border-radius:15px; background: rgba(255,255,255,.1); }
+.t-item:before { content:""; position:absolute; left:-.25in; top:.21in; width:.12in; height:.12in; border-radius:50%; background:#F5A623; }
+.t-item strong { color:#F5A623; font-size: 10pt; letter-spacing:.05em; text-transform:uppercase; }
+.t-item p { margin:.04in 0 0; font-size:9.8pt; line-height:1.25; }
+.two-column-text { columns: 2; column-gap: .28in; }
+.bar { height:.12in; border-radius:999px; background: rgba(27,58,107,.09); overflow:hidden; margin:.07in 0 .12in; }
+.bar div { height:100%; border-radius:999px; background: linear-gradient(90deg,#2D9B8A,#F5A623); }
+.watermark-word { position:absolute; right:-.1in; bottom:.4in; font-size:96pt; font-weight:900; letter-spacing:-.06em; color: rgba(27,58,107,.04); }
+.dark .watermark-word { color: rgba(255,255,255,.05); }
+.check { color: #2D9B8A; font-weight: 900; }
+.loss { color: #E05C5C; font-weight: 900; }
+@media print { body { background: none; } }
+</style>
+</head>
+<body>
+<section class="slide dark">
+<div class="ribbon">Validade: 15 dias</div>
+<div class="cover-grid">
+  <div>
+    <div class="kicker">Proposta confidencial · Grupo Gradual</div>
+    <div class="hero">BCM</div>
+    <div class="subhero">Parceria estratégica para transformar o Grupo Gradual no primeiro parceiro clínico e científico da plataforma ABA digital mais completa do Brasil.</div>
+    <div class="divider"></div>
+    <p class="big"><span class="accent">R$ 75.000</span> em 3 tranches · <span class="accent">5%</span> da LaVita Code · <span class="accent">risco protegido por gatilhos reais</span></p>
+    <p class="small">Dra. Leila Bagaiolo · Dra. Claudia Romano Pacifico · Grupo Gradual</p>
+  </div>
+  <div class="cover-panel">
+    <div class="kicker">Tese central</div>
+    <p class="quote">Vocês não entram para comprar promessa. Entram para capturar a primeira janela de validação clínica, produto pronto e participação estratégica.</p>
+    <div class="divider"></div>
+    <div class="grid grid-2">
+      <div><div class="metric">35min</div><div class="metric-label">PEI gerado com baselines, metas e PDF defensável</div></div>
+      <div><div class="metric">32</div><div class="metric-label">jogos terapêuticos com telemetria clínica</div></div>
+      <div><div class="metric">3+</div><div class="metric-label">protocolos BCM default, sem limitar o método clínico</div></div>
+      <div><div class="metric">OERA+</div><div class="metric-label">protocolos específicos do Gradual podem virar nativos</div></div>
+    </div>
+  </div>
+</div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">01</span></div></section><section class="slide white"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="watermark-word">INVEST</div>
+<div class="kicker">Resumo executivo</div>
+<h1>Uma decisão simples: entrar agora como parceiro fundador ou assistir o padrão ser definido por outro.</h1>
+<h2>O BCM já existe. A parceria reduz risco, acelera validação científica e cria um ativo comercial defensável para os dois lados.</h2>
+<div class="grid grid-3">
+  <div class="card teal"><div class="mini-title">O produto</div><p>Plataforma clínica ABA digital completa: avaliação, PEI, CAA, rotinas, jogos, telemetria, relatórios e Visão 360.</p></div>
+  <div class="card amber"><div class="mini-title">O deal</div><p><b>5% da LaVita Code</b> por <b>R$75 mil</b>, pagos em 3 tranches atreladas a assinatura, usuários pagantes e publicação ou escala.</p></div>
+  <div class="card purple"><div class="mini-title">O diferencial</div><p>Kernel genérico capaz de aceitar um ou mais protocolos. PSRF, PSFA e EPS-PCA são defaults BCM; OERA e a lista preferencial do Gradual podem entrar como protocolos nativos.</p></div>
+  <div class="card blue"><div class="mini-title">O risco protegido</div><p>A tranche 2 só é ativada com <b>50 usuários pagantes ativos</b>. O segundo cheque vem depois da prova, não antes.</p></div>
+  <div class="card teal"><div class="mini-title">O retorno direto</div><p>6 meses gratuitos, 30% de desconto permanente no plano clínica, dados reais, coautoria e integração OERA.</p></div>
+  <div class="card amber"><div class="mini-title">A urgência</div><p>Validade de 15 dias. A primeira parceria clínica define posição, autoria, dados e narrativa de mercado.</p></div>
+</div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">02</span></div></section><section class="slide dark"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="kicker">Por que agora</div>
+<h1>A pressão regulatória já chegou. O mercado ainda não tem um padrão.</h1>
+<h2>Quando a lei cria obrigatoriedade antes da existência de ferramentas, quem chega com método vira referência.</h2>
+<div class="grid grid-4">
+  <div class="card"><div class="metric">918K</div><div class="metric-label">crianças com TEA no Brasil - base INEP citada na proposta</div></div>
+  <div class="card"><div class="metric">+44%</div><div class="metric-label">crescimento de diagnósticos em 1 ano</div></div>
+  <div class="card"><div class="metric">94,2%</div><div class="metric-label">professores sem formação ABA</div></div>
+  <div class="card"><div class="metric">R$320K</div><div class="metric-label">custo médio de litígio por não conformidade</div></div>
+</div>
+<div class="divider"></div>
+<div class="grid grid-2">
+  <div class="card">
+    <h3>O gatilho de mercado</h3>
+    <ul>
+      <li>PEI obrigatório nas escolas.</li>
+      <li>Planos de saúde exigem documentação clínica defensável.</li>
+      <li>Clínicas precisam provar evolução, não apenas registrar sessão.</li>
+    </ul>
+  </div>
+  <div class="card amber">
+    <h3>O risco de esperar</h3>
+    <ul>
+      <li>Outro parceiro clínico ocupa o lugar de referência.</li>
+      <li>Outro protocolo vira o primeiro nativo do marketplace.</li>
+      <li>A janela de fundação vira janela de cliente comum.</li>
+    </ul>
+  </div>
+</div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">03</span></div></section><section class="slide white"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="kicker">O que é o BCM</div>
+<h1>Não é prontuário. Não é app de jogos. É um sistema clínico onde cada módulo alimenta o próximo.</h1>
+<div class="flow">
+  <div class="step"><strong>Avaliação clínica</strong><span>3 protocolos default BCM + protocolos específicos do Gradual, isolados ou combinados.</span></div>
+  <div class="arrow">→</div>
+  <div class="step"><strong>Kernel de decisão</strong><span>Processa dados, deriva metas e organiza plano clínico.</span></div>
+  <div class="arrow">→</div>
+  <div class="step"><strong>PEI automático</strong><span>Baselines, metas SMART, critérios de mastery e PDF.</span></div>
+  <div class="arrow">→</div>
+  <div class="step"><strong>Intervenção ativa</strong><span>Jogos, rotinas, CAA, FCT e VB-MAPP.</span></div>
+  <div class="arrow">→</div>
+  <div class="step"><strong>Evidência contínua</strong><span>Telemetria, relatórios, ANS, escola e família.</span></div>
+</div>
+<div class="grid grid-3" style="margin-top:.22in">
+  <div class="card teal"><div class="metric">1</div><div class="metric-label"><b>ambiente único</b><br>avaliação, intervenção e monitoramento</div></div>
+  <div class="card amber"><div class="metric">0</div><div class="metric-label"><b>retrabalho clínico</b><br>o dado nasce estruturado e segue o fluxo</div></div>
+  <div class="card purple"><div class="metric">360°</div><div class="metric-label"><b>visão integrada</b><br>criança, terapeuta, família e escola</div></div>
+</div>
+<div class="callout" style="margin-top:.18in"><p>Frase de posicionamento: BCM transforma avaliação clínica em plano de intervenção mensurável - e transforma intervenção em evidência.</p></div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">04</span></div></section><section class="slide white"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="kicker">Produto funcionando hoje</div>
+<h1>O BCM já nasce com um ecossistema completo.</h1>
+<h2>A proposta não é financiar uma ideia. É acelerar um ativo funcional com módulos já definidos.</h2>
+<div class="grid grid-4">
+  <div class="card teal"><div class="mini-title">01 · PSRF-BCM</div><p class="small">Triagem de repertório funcional: 21 probes, 7 domínios, output direto para metas.</p></div>
+  <div class="card teal"><div class="mini-title">02 · PSFA-BCM</div><p class="small">Análise funcional: 4 condições + controle, hipótese funcional e confiança.</p></div>
+  <div class="card teal"><div class="mini-title">03 · EPS-PCA</div><p class="small">Perfil sensorial: 24 trials, 5 canais, adaptação de UX e rotina.</p></div>
+  <div class="card amber"><div class="mini-title">04 · Kernel</div><p class="small">Motor clínico genérico para derivar metas, intervenções e governança.</p></div>
+  <div class="card blue"><div class="mini-title">05 · PEI Digital</div><p class="small">Gerado em 35 min com baselines, SMART, mastery e PDF defensável.</p></div>
+  <div class="card blue"><div class="mini-title">06 · Minha Voz</div><p class="small">CAA com PECS, voz PT-BR, modo livre, modo clínico e FCT.</p></div>
+  <div class="card purple"><div class="mini-title">07 · Rotinas</div><p class="small">Economia de fichas, fading, reforços e execução vinculada ao PEI.</p></div>
+  <div class="card purple"><div class="mini-title">08 · 32 Jogos</div><p class="small">5 mundos com telemetria: acertos, erros, latência e nível de ajuda.</p></div>
+  <div class="card teal"><div class="mini-title">09 · Visão 360</div><p class="small">Dashboard com PSRF, PSFA, EPS-PCA, PEI e comportamento.</p></div>
+  <div class="card amber"><div class="mini-title">10 · Relatórios</div><p class="small">PDF clínico, ANS, escolar, progresso e exportação por período.</p></div>
+  <div class="card blue"><div class="mini-title">11 · Acesso progressivo</div><p class="small">Níveis por vínculo clínico: criança, responsável, terapeuta e admin.</p></div>
+  <div class="card purple"><div class="mini-title">12 · Stack SaaS</div><p class="small">Angular, Ionic, NestJS, Prisma, PostgreSQL, AWS, Claude e LGPD.</p></div>
+</div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">05</span></div></section><section class="slide teal-bg"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="kicker">A tese técnica</div>
+<h1>O verdadeiro ativo não é só o PEI. É o kernel que aceita um ou mais protocolos estruturados.</h1>
+<h2>Os 3 protocolos BCM são default. O Gradual pode operar com os próprios protocolos, sem abandonar o método que já usa.</h2>
+<div class="grid grid-3" style="align-items:stretch; margin-top:.15in">
+  <div class="card"><div class="mini-title">Inputs clínicos configuráveis</div><ul><li><b>Defaults BCM:</b> PSRF-BCM, PSFA-BCM, EPS-PCA</li><li><b>Gradual:</b> OERA como prioridade</li><li><b>Lista preferencial:</b> VB-MAPP, ABLLS-R, PEP-3, CARS-2, Vineland-3, SRS-2</li><li><b>Regra:</b> usar 1 protocolo ou combinar vários no mesmo caso clínico</li></ul></div>
+  <div class="card amber"><div class="mini-title">Kernel BCM</div><ul><li>Mapeia domínios e escalas</li><li>Processa dados de avaliação</li><li>Deriva metas clínicas</li><li>Aciona jogos, rotinas, CAA e FCT</li><li>Gera evidência contínua</li></ul></div>
+  <div class="card"><div class="mini-title">Outputs</div><ul><li>PEI automático</li><li>Metas SMART</li><li>Baselines auditáveis</li><li>Critérios de mastery</li><li>Relatórios para escola, ANS e família</li></ul></div>
+</div>
+<div class="callout" style="margin-top:.22in"><p>Mensagem comercial: o BCM não força o Gradual a trocar de método. O terapeuta pode escolher OERA, os defaults BCM ou uma combinação de protocolos. O kernel normaliza os dados e transforma o método de vocês em PEI, metas, jogos, rotinas e relatórios.</p></div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">06</span></div></section><section class="slide white"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="watermark-word">PROTOCOLOS</div>
+<div class="kicker">Protocolos específicos do Gradual</div>
+<h1>O BCM deve rodar o protocolo de vocês - não substituir a clínica de vocês.</h1>
+<h2>PSRF, PSFA e EPS-PCA continuam como protocolos default do BCM. A proposta permite que o Gradual use um ou mais protocolos próprios/preferenciais - OERA, VB-MAPP, ABLLS-R, PEP-3, CARS-2, SRS-2, Vineland-3 e outros definidos pela equipe clínica.</h2>
+<div class="grid grid-2" style="margin-top:.08in; align-items:start">
+  <div class="card teal">
+    <h3>Catálogo nativo Gradual</h3>
+    <p class="small">Lista inicial para validação com Dra. Leila e Dra. Claudia. O ponto central é a arquitetura: cada protocolo entra com domínio, escala, regra de interpretação e output clínico.</p>
+    <div class="grid grid-2" style="gap:.08in; margin-top:.12in">
+      <div><span class="badge">Prioritário</span><p class="small"><b>OERA</b><br>protocolo fundador do Gradual dentro do BCM</p></div>
+      <div><span class="badge">Linguagem</span><p class="small"><b>VB-MAPP</b><br>habilidades verbais e plano de intervenção</p></div>
+      <div><span class="badge">Repertório</span><p class="small"><b>ABLLS-R</b><br>habilidades básicas de linguagem e aprendizagem</p></div>
+      <div><span class="badge">Desenvolvimento</span><p class="small"><b>PEP-3</b><br>perfil psicoeducacional e desenvolvimento</p></div>
+      <div><span class="badge">Rastreio</span><p class="small"><b>CARS-2 / SRS-2</b><br>escalas de severidade e responsividade social</p></div>
+      <div><span class="badge">Adaptação</span><p class="small"><b>Vineland-3</b><br>comportamento adaptativo e vida diária</p></div>
+    </div>
+  </div>
+  <div>
+    <div class="card amber">
+      <h3>Como o terapeuta usa</h3>
+      <ul>
+        <li>Escolhe o protocolo do caso: <b>default BCM</b>, <b>Gradual</b> ou <b>combinação</b>.</li>
+        <li>Aplica dentro do fluxo digital, sem planilhas paralelas.</li>
+        <li>Kernel transforma respostas em domínios, baselines, metas e critérios de mastery.</li>
+        <li>PEI, jogos, CAA, FCT, rotinas e relatórios saem conectados ao protocolo escolhido.</li>
+      </ul>
+    </div>
+    <div class="flow" style="margin-top:.15in">
+      <div class="step"><strong>1</strong><span>Protocolo escolhido</span></div><div class="arrow">→</div>
+      <div class="step"><strong>2</strong><span>Mapeamento clínico</span></div><div class="arrow">→</div>
+      <div class="step"><strong>3</strong><span>Kernel BCM</span></div><div class="arrow">→</div>
+      <div class="step"><strong>4</strong><span>PEI + intervenção</span></div>
+    </div>
+    <div class="callout" style="margin-top:.15in"><p>Frase-chave para o investidor: o Gradual não entra para adaptar sua clínica ao BCM. O BCM entra para transformar os protocolos do Gradual em software, escala, dados e propriedade estratégica.</p></div>
+  </div>
+</div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">07</span></div></section><section class="slide white"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="kicker">OERA como primeiro protocolo parceiro</div>
+<h1>O Grupo Gradual pode ocupar a posição mais valiosa: dono do primeiro catálogo parceiro de protocolos.</h1>
+<div class="grid grid-2">
+  <div>
+    <h2>Na prática, o que acontece:</h2>
+    <div class="timeline">
+      <div class="t-item"><strong>1 · Mapeamento</strong><p>OERA e a lista preferencial do Gradual são traduzidos para o modelo genérico do kernel.</p></div>
+      <div class="t-item"><strong>2 · Cadastro</strong><p>Protocolos Gradual entram como opções de avaliação, começando pelo OERA.</p></div>
+      <div class="t-item"><strong>3 · Aplicação</strong><p>Terapeuta aplica digitalmente, no fluxo clínico do BCM.</p></div>
+      <div class="t-item"><strong>4 · PEI</strong><p>Kernel gera metas a partir do protocolo ou da combinação escolhida.</p></div>
+      <div class="t-item"><strong>5 · Dados</strong><p>Uso real vira evidência, publicação e vantagem institucional.</p></div>
+    </div>
+  </div>
+  <div class="card amber">
+    <h3>Por que isso vale mais do que os 5%</h3>
+    <ul>
+      <li><b>Crédito científico:</b> Gradual vira primeiro parceiro de catálogo protocolar.</li>
+      <li><b>Vantagem comercial:</b> clínicas entram com o padrão já validado.</li>
+      <li><b>Dados acadêmicos:</b> base real para publicação conjunta.</li>
+      <li><b>Barreira competitiva:</b> primeiro protocolo fundador define reputação e taxonomia.</li>
+      <li><b>Modelo futuro:</b> outros parceiros pagarão para cadastrar protocolos no marketplace.</li>
+    </ul>
+  </div>
+</div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">08</span></div></section><section class="slide dark"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="kicker">Mercado e receita recorrente</div>
+<h1>O BCM captura uma dor que é clínica, escolar, jurídica e financeira ao mesmo tempo.</h1>
+<div class="grid grid-2" style="margin-top:.16in">
+  <div class="card">
+    <h3>Quem paga</h3>
+    <ul>
+      <li>Terapeutas independentes - plano profissional.</li>
+      <li>Clínicas ABA - plano clínica.</li>
+      <li>Escolas e redes de ensino - plano escola.</li>
+      <li>Prefeituras e secretarias - contratos enterprise/white-label.</li>
+    </ul>
+  </div>
+  <div class="card amber">
+    <h3>Quem não paga</h3>
+    <p class="big">A família nunca paga.</p>
+    <p>O acesso é liberado via código gerado pelo profissional. Isso cria adoção social sem transferir custo para a família.</p>
+  </div>
+</div>
+<div class="grid grid-4" style="margin-top:.2in">
+  <div class="card"><div class="metric">R$297</div><div class="metric-label">Profissional/mês · até 10 crianças</div></div>
+  <div class="card"><div class="metric">R$997</div><div class="metric-label">Clínica/mês · até 30 crianças</div></div>
+  <div class="card"><div class="metric">R$1.997</div><div class="metric-label">Escola/mês · pool de 50 crianças</div></div>
+  <div class="card"><div class="metric">B2G</div><div class="metric-label">Enterprise municipal por número de crianças</div></div>
+</div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">09</span></div></section><section class="slide white"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="kicker">Projeções conservadoras</div>
+<h1>Do piloto ao breakeven: a rota depende de uso real, receita recorrente e prova clínica.</h1>
+<table>
+  <thead><tr><th>Período</th><th>Tração esperada</th><th>Receita mensal estimada</th><th>Leitura comercial</th></tr></thead>
+  <tbody>
+    <tr><td><b>Mês 1-3</b><br>Piloto Gradual</td><td>0 pagantes - uso gratuito de validação</td><td>R$ 0</td><td>Provar uso, onboarding, dados e melhoria de produto.</td></tr>
+    <tr><td><b>Mês 4-6</b><br>Pós-milestone</td><td>15 pagantes</td><td><b>R$ 10.000</b></td><td>Primeira prova de disposição a pagar.</td></tr>
+    <tr><td><b>Mês 7-9</b><br>Expansão Fortaleza</td><td>50 pagantes</td><td><b>R$ 35.000</b></td><td>Ativa tranche 2 e valida canal inicial.</td></tr>
+    <tr><td><b>Mês 10-12</b><br>Expansão regional</td><td>120 pagantes</td><td><b>R$ 85.000</b></td><td>Modelo de aquisição e retenção mais claro.</td></tr>
+    <tr><td><b>Ano 2 - Q1</b></td><td>250 pagantes</td><td><b>R$ 175.000</b></td><td>Escala SaaS com mix profissional, clínica e escola.</td></tr>
+    <tr><td><b>Ano 2</b><br>Breakeven</td><td>350+ pagantes</td><td><b>R$ 245.000</b></td><td>Empresa em rota de sustentabilidade.</td></tr>
+  </tbody>
+</table>
+<div class="grid grid-3" style="margin-top:.16in">
+  <div class="card teal"><div class="mini-title">Mix estimado</div><p class="small">60% profissional · 30% clínica · 10% escola/enterprise.</p></div>
+  <div class="card amber"><div class="mini-title">Municipal</div><p class="small">1 contrato de 500 crianças pode gerar R$15k-R$25k/mês.</p></div>
+  <div class="card purple"><div class="mini-title">Alavanca</div><p class="small">1 contrato municipal equivale a dezenas de assinantes profissionais.</p></div>
+</div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">10</span></div></section><section class="slide teal-bg"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="kicker">Por que o Grupo Gradual</div>
+<h1>Vocês têm o que não se compra. O BCM tem o que leva anos para construir.</h1>
+<div class="grid grid-2" style="margin-top:.18in">
+  <div class="card">
+    <h3>O que o Gradual traz</h3>
+    <ul>
+      <li>23 anos de operação clínica ABA.</li>
+      <li>Dra. Leila Bagaiolo: autoridade científica e rede acadêmica.</li>
+      <li>2.000+ crianças atendidas.</li>
+      <li>~100 ATs formados por ano.</li>
+      <li>Parcerias institucionais citadas: HC/USP e PUC-SP.</li>
+      <li>Jogos digitais com lógica ABA que podem virar ativo vivo.</li>
+    </ul>
+  </div>
+  <div class="card amber">
+    <h3>O que o BCM entrega</h3>
+    <ul>
+      <li>Plataforma funcional em produção.</li>
+      <li>Kernel clínico que transforma avaliação em PEI.</li>
+      <li>Telemetria real de intervenção.</li>
+      <li>Produto SaaS pronto para escalar.</li>
+      <li>Base técnica para OERA nativo e publicação conjunta.</li>
+      <li>Modelo de receita recorrente com família fora do custo.</li>
+    </ul>
+  </div>
+</div>
+<div class="callout" style="margin-top:.22in"><p>Frase de fechamento do slide: juntos, Gradual e BCM chegam onde nenhum dos dois chega sozinho.</p></div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">11</span></div></section><section class="slide white"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="kicker">Credibilidade operacional</div>
+<h1>Um time enxuto, com motivação real e produto já construído.</h1>
+<div class="grid grid-2" style="margin-top:.18in">
+  <div class="card teal person">
+    <img src="file:///mnt/data/rafael_thumb.jpg" />
+    <div><h3>Rafael Dias</h3><p class="small"><b>Fundador · CTO · Engenheiro de Software</b><br>Autista, engenheiro sênior com 10+ anos em Angular, NestJS e plataformas SaaS. Investiu R$150 mil do próprio bolso para construir o BCM.</p></div>
+  </div>
+  <div class="card purple person">
+    <img src="file:///mnt/data/laura_thumb.jpg" />
+    <div><h3>Laura Bastos</h3><p class="small"><b>Co-fundadora · Head de Produto</b><br>Psicologia, Acompanhante Terapêutica, pesquisadora em TEA e tecnologias assistivas. A origem clínica e humana do projeto.</p></div>
+  </div>
+</div>
+<div class="grid grid-4" style="margin-top:.2in">
+  <div class="card amber"><div class="metric">R$150K</div><div class="metric-label">capital próprio investido</div></div>
+  <div class="card teal"><div class="metric">3 anos</div><div class="metric-label">de construção contínua</div></div>
+  <div class="card blue"><div class="metric">AWS</div><div class="metric-label">Activate aprovado</div></div>
+  <div class="card purple"><div class="metric">Claude</div><div class="metric-label">IA aplicada ao kernel e histórias</div></div>
+</div>
+<div class="callout" style="margin-top:.18in"><p>Autoridade emocional + autoridade técnica: produto nasceu da vivência, mas só se sustenta porque foi construído com arquitetura SaaS, protocolos clínicos e governança.</p></div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">12</span></div></section><section class="slide dark"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="kicker">A proposta</div>
+<h1>5% da LaVita Code por R$ 75.000 - com aporte em etapas e gatilhos objetivos.</h1>
+<div class="grid grid-3" style="margin-top:.2in">
+  <div class="card amber"><div class="mini-title">Tranche 1 - Assinatura</div><div class="metric">R$30K</div><p class="small">Contrato assinado, acesso gratuito, viagem inicial, onboarding e início da integração OERA.</p></div>
+  <div class="card teal"><div class="mini-title">Tranche 2 - Prova de mercado</div><div class="metric">R$25K</div><p class="small"><b>Somente com 50 usuários pagantes ativos</b> na base total da plataforma.</p></div>
+  <div class="card purple"><div class="mini-title">Tranche 3 - Resultado</div><div class="metric">R$20K</div><p class="small">Publicação científica conjunta ou 100 usuários pagantes ativos.</p></div>
+</div>
+<div class="divider"></div>
+<div class="grid grid-2">
+  <div class="card"><h3>O que vocês recebem</h3><ul><li>5% da empresa.</li><li>6 meses gratuitos para toda a clínica.</li><li>30% de desconto permanente no plano clínica.</li><li>OERA + protocolos preferenciais do Gradual como catálogo nativo BCM.</li><li>Direito a voto em decisões técnicas de produto com impacto clínico.</li><li>Coautoria e dados reais de uso.</li></ul></div>
+  <div class="card amber"><h3>O que protege o investidor</h3><ul><li>Tranche 2 não é por data - é por receita ativa.</li><li>Tranche 3 exige publicação ou escala.</li><li>Uso gratuito exige mínimo de 10 crianças em 60 dias.</li><li>Acesso a relatórios trimestrais de uso, receita e roadmap.</li></ul></div>
+</div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">13</span></div></section><section class="slide white"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="kicker">Paga pela prova - não pela promessa</div>
+<h1>A estrutura foi desenhada para reduzir risco e aumentar confiança a cada etapa.</h1>
+<div class="flow" style="align-items:center; margin-top:.15in">
+  <div class="step"><strong>Assinatura</strong><span>R$30K<br>contrato, acesso, viagem e onboarding</span></div>
+  <div class="arrow">→</div>
+  <div class="step"><strong>Uso real</strong><span>terapeutas usam, crianças usam, dados são gerados</span></div>
+  <div class="arrow">→</div>
+  <div class="step"><strong>50 pagantes</strong><span>R$25K<br>somente com prova de mercado</span></div>
+  <div class="arrow">→</div>
+  <div class="step"><strong>Publicação/100 usuários</strong><span>R$20K<br>resultado científico ou escala</span></div>
+</div>
+<div class="grid grid-2" style="margin-top:.24in">
+  <div class="card teal"><h3>Por que isso é justo para o Gradual</h3><ul><li>O segundo cheque só vem quando o produto já provou tração paga.</li><li>O acesso gratuito permite validar sem custo operacional inicial.</li><li>O Gradual influencia o produto antes que ele fique engessado.</li></ul></div>
+  <div class="card amber"><h3>Por que isso é justo para a LaVita Code</h3><ul><li>A tranche 1 financia execução, presença em SP e integração inicial.</li><li>O uso real gera dados e valida o produto.</li><li>O parceiro entra com participação ativa, não apenas com capital.</li></ul></div>
+</div>
+<div class="callout" style="margin-top:.18in"><p>Regra de confiança: se não houver prova de mercado, a tranche 2 não dispara.</p></div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">14</span></div></section><section class="slide white"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="kicker">Retorno esperado</div>
+<h1>O retorno combina equity, economia direta, acesso tecnológico e valor científico.</h1>
+<div class="grid grid-2">
+  <div class="card teal">
+    <h3>Valor direto recebido</h3>
+    <table>
+      <tbody>
+        <tr><td>6 meses Plano Clínica gratuito</td><td><b>R$ 5.982</b></td></tr>
+        <tr><td>30% desconto permanente por 10 anos</td><td><b>R$ 35.892</b></td></tr>
+        <tr><td>OERA + catálogo Gradual como protocolo nativo</td><td><b>estratégico</b></td></tr>
+        <tr><td>Dados clínicos reais e coautoria</td><td><b>acadêmico</b></td></tr>
+        <tr><td>Subtotal monetizável direto</td><td><b>R$ 42.000+</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card amber">
+    <h3>Valor potencial dos 5%</h3>
+    <table>
+      <tbody>
+        <tr><td>Entrada hoje</td><td><b>R$ 75.000</b></td></tr>
+        <tr><td>Com 350 assinantes - breakeven</td><td><b>R$ 125K-R$175K</b></td></tr>
+        <tr><td>Com 1.000 assinantes</td><td><b>R$ 375K-R$500K</b></td></tr>
+        <tr><td>1 contrato municipal + 500 assinantes</td><td><b>R$ 600K-R$900K</b></td></tr>
+        <tr><td>Presença nacional - 5 estados</td><td><b>R$ 1M-R$2M</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p class="tiny" style="margin-top:.12in">Observação: projeções e valuation são estimativas comerciais por múltiplo de MRR e não constituem garantia de retorno.</p>
+<div class="callout" style="margin-top:.12in"><p>Âncora de decisão: por R$75 mil, o Gradual compra posição estratégica antes da rodada, antes da escala e antes de outros protocolos entrarem.</p></div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">15</span></div></section><section class="slide teal-bg"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="kicker">Retorno antes da escala</div>
+<h1>A parceria pode gerar economia operacional mesmo antes do BCM crescer.</h1>
+<h2>LaVita Code como parceira tecnológica do Grupo Gradual - 25% abaixo do valor de mercado enquanto a sociedade estiver ativa.</h2>
+<div class="grid grid-2" style="margin-top:.18in">
+  <div class="card">
+    <h3>Serviços incluídos</h3>
+    <ul>
+      <li>Desenvolvimento de sistemas internos.</li>
+      <li>Manutenção e evolução de sistemas existentes.</li>
+      <li>Integrações, APIs, portais e aplicativos.</li>
+      <li>Suporte técnico especializado em clínica ABA.</li>
+    </ul>
+  </div>
+  <div class="card amber">
+    <h3>Exemplo de payback</h3>
+    <p class="big">Se hoje a softhouse custa R$ 8.000/mês:</p>
+    <ul>
+      <li>25% de desconto = R$ 2.000/mês economizados.</li>
+      <li>Economia anual = R$ 24.000.</li>
+      <li>Payback do investimento total = 3,1 anos só com economia direta.</li>
+    </ul>
+    <p class="small">Se o custo atual for R$12.000/mês, a economia anual sobe para R$36.000 e o payback cai para 2,1 anos.</p>
+  </div>
+</div>
+<div class="callout" style="margin-top:.2in"><p>Mensagem de segurança: mesmo que o BCM demore mais para escalar, a parceria já cria retorno operacional independente do equity.</p></div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">16</span></div></section><section class="slide white"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="kicker">Governança</div>
+<h1>Participação minoritária com voz real no produto - sem bloquear a operação.</h1>
+<div class="grid grid-2">
+  <div class="card teal">
+    <h3>Estrutura societária proposta</h3>
+    <table>
+      <tbody>
+        <tr><td>Rafael Dias - LaVita Code</td><td><b>95%</b><br>fundador, CTO, produto e tecnologia</td></tr>
+        <tr><td>Grupo Gradual / Leila Bagaiolo</td><td><b>5%</b><br>parceiro estratégico, validação clínica, rede e voto técnico-clínico</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card amber">
+    <h3>Direitos do sócio minoritário</h3>
+    <ul>
+      <li>Relatório trimestral de uso, receita e roadmap.</li>
+      <li><b>Direito a voto em decisões técnicas de produto</b> que impactem protocolo clínico, UX terapêutica, dados clínicos, relatórios, jogos terapêuticos, OERA e integrações de avaliação.</li>
+      <li>Coautoria em publicações científicas com dados BCM.</li>
+      <li>Preferência de compra em rodada futura - pro-rata.</li>
+      <li>Desconto permanente no Plano Clínica.</li>
+      <li>Participação na priorização da lista de protocolos Gradual que entram no kernel.</li>
+    </ul>
+  </div>
+</div>
+<div class="grid grid-2" style="margin-top:.18in">
+  <div class="card purple"><h3>O que não está incluído</h3><ul><li>Acesso ao código-fonte.</li><li>Direito de veto em parcerias comerciais externas.</li><li>Obrigação de aporte adicional.</li><li>Interferência em execução técnica diária sem rito de governança.</li></ul></div>
+  <div class="card blue"><h3>Papel da Dra. Leila</h3><ul><li>Validação dos protocolos embarcados.</li><li>Integração OERA + lista preferencial Gradual em até 6 meses.</li><li>Coautoria científica.</li><li>Participação em encontros presenciais.</li><li>Abertura de rede acadêmica e institucional.</li></ul></div>
+</div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">17</span></div></section><section class="slide dark"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="kicker">Plano de execução</div>
+<h1>Do acordo ao primeiro usuário em até 30 dias.</h1>
+<div class="timeline" style="margin-top:.15in; max-width: 11in;">
+  <div class="t-item"><strong>Semana 1</strong><p>Contrato assinado, tranche 1 liberada, viagem Rafael + Laura para SP, alinhamento presencial e início do onboarding.</p></div>
+  <div class="t-item"><strong>Semana 2</strong><p>Entrega dos jogos Gradual, mapeamento inicial do OERA, acessos da clínica e primeiros terapeutas preparados.</p></div>
+  <div class="t-item"><strong>Mês 1</strong><p>Mínimo de 10 crianças cadastradas, primeiros dados reais, feedback clínico direto e iteração rápida.</p></div>
+  <div class="t-item"><strong>Mês 3</strong><p>Relatório de uso, expansão comercial inicial e gatilho da tranche 2 apenas se houver 50 usuários pagantes ativos.</p></div>
+  <div class="t-item"><strong>Mês 6</strong><p>OERA nativo, publicação conjunta ou 100 usuários pagantes, tranche 3 e expansão nacional iniciando.</p></div>
+</div>
+<div class="callout" style="position:absolute; right:.55in; bottom:.72in; width:3.8in;"><p>Primeira meta concreta: o BCM rodando no Gradual em até 30 dias.</p></div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">18</span></div></section><section class="slide white"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="kicker">Objeções respondidas</div>
+<h1>As principais dúvidas já foram tratadas na estrutura do acordo.</h1>
+<div class="grid grid-2">
+  <div class="card amber"><h3>“E se o produto não vender?”</h3><p>A tranche 2 só é paga com 50 usuários pagantes ativos. Sem venda, não há segundo aporte.</p></div>
+  <div class="card teal"><h3>“E se a clínica não usar?”</h3><p>O acesso gratuito exige mínimo de 10 crianças nos primeiros 60 dias. Sem uso, não há validação real para ninguém.</p></div>
+  <div class="card purple"><h3>“E se virar só mais um software?”</h3><p>O diferencial é o kernel clínico + OERA nativo + telemetria + relatórios defensáveis. Não é apenas cadastro ou prontuário.</p></div>
+  <div class="card blue"><h3>“E se a participação for pequena?”</h3><p>5% agora é posição de fundador de parceria, antes de receita, rodada e escala. O valor está no timing.</p></div>
+  <div class="card teal"><h3>“E se houver conflito técnico?”</h3><p>O Gradual tem direito a voto nas decisões técnicas de produto com impacto clínico. Rafael mantém a responsabilidade de viabilidade, arquitetura e execução técnica.</p></div>
+  <div class="card amber"><h3>“E se o retorno demorar?”</h3><p>A economia de softhouse e desconto permanente criam retorno direto independente da escala do BCM.</p></div>
+</div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">19</span></div></section><section class="slide teal-bg"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="kicker">Quadro de decisão</div>
+<h1>A decisão não é “investir em uma startup”. É escolher posição na fundação de um novo padrão clínico digital.</h1>
+<div class="grid grid-2" style="margin-top:.18in">
+  <div class="card">
+    <h3>Se o Gradual entra agora</h3>
+    <ul>
+      <li>Vira primeiro parceiro clínico do BCM.</li>
+      <li>Molda o produto antes da escala.</li>
+      <li>Integra OERA e catálogo Gradual como protocolo fundador.</li>
+      <li>Ganha coautoria, dados e participação.</li>
+      <li>Ocupa a narrativa científica do mercado.</li>
+    </ul>
+  </div>
+  <div class="card amber">
+    <h3>Se o Gradual espera</h3>
+    <ul>
+      <li>Outro parceiro pode ocupar a posição.</li>
+      <li>Outro parceiro pode virar o primeiro catálogo nativo.</li>
+      <li>A entrada futura tende a ser como cliente, não como fundador.</li>
+      <li>A janela de validação inicial pode fechar.</li>
+      <li>O poder de moldar produto diminui.</li>
+    </ul>
+  </div>
+</div>
+<div class="callout" style="margin-top:.22in"><p>Resumo persuasivo: o custo da espera não é apenas perder o deal. É perder a posição.</p></div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">20</span></div></section><section class="slide white"><div class="brand"><div class="brand-mark">B</div><span>BCM · LaVita Code</span></div>
+<div class="kicker">Termos resumidos</div>
+<h1>Uma proposta clara, mensurável e pronta para contrato.</h1>
+<table>
+  <tbody>
+    <tr><td><b>Produto</b></td><td>Plataforma clínica ABA digital completa - funcional hoje.</td></tr>
+    <tr><td><b>Investimento total</b></td><td>R$ 75.000 em 3 tranches.</td></tr>
+    <tr><td><b>Equity oferecido</b></td><td>5% da LaVita Code.</td></tr>
+    <tr><td><b>Tranche 1</b></td><td>R$30.000 na assinatura + onboarding + viagem inicial + início OERA.</td></tr>
+    <tr><td><b>Tranche 2</b></td><td>R$25.000 apenas com 50 usuários pagantes ativos.</td></tr>
+    <tr><td><b>Tranche 3</b></td><td>R$20.000 com publicação conjunta ou 100 usuários pagantes.</td></tr>
+    <tr><td><b>Acesso Gradual</b></td><td>6 meses gratuitos, todos os terapeutas e crianças, condicionado a uso mínimo.</td></tr>
+    <tr><td><b>Desconto permanente</b></td><td>30% no Plano Clínica enquanto a sociedade estiver ativa.</td></tr>
+    <tr><td><b>Protocolos Gradual</b></td><td>OERA prioritário + lista preferencial configurável como catálogo nativo fundador do BCM.</td></tr>
+    <tr><td><b>Serviços LaVita Code</b></td><td>25% abaixo do mercado para desenvolvimento de software.</td></tr>
+    <tr><td><b>Validade</b></td><td>15 dias - até 22 de maio de 2026.</td></tr>
+  </tbody>
+</table>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">21</span></div></section><section class="slide dark">
+<div class="cover-grid">
+  <div>
+    <div class="kicker">Próximos passos</div>
+    <h1>Vamos transformar o primeiro piloto em referência nacional.</h1>
+    <h2>Assinar intenção, formalizar contrato, liberar tranche 1, iniciar SP e colocar os primeiros terapeutas na plataforma em 7 dias.</h2>
+    <div class="divider"></div>
+    <p class="quote">Vocês têm 23 anos construindo o que o BCM precisa. Eu tenho o que leva anos construir: a plataforma pronta. Juntos chegamos onde nenhum dos dois chega sozinho.</p>
+  </div>
+  <div class="cover-panel">
+    <h3>Contato</h3>
+    <p><b>Rafael Dias</b><br>Fundador · LaVita Code</p>
+    <p><b>Email:</b> rafaeldias@lavitacode.com.br<br><b>Telefone:</b> +55 85 9 9444-8858<br><b>Site:</b> lavitacode.com.br</p>
+    <div class="divider"></div>
+    <p class="big"><span class="accent">Documento confidencial</span><br>Elaborado exclusivamente para o Grupo Gradual.</p>
+    <p class="tiny">Esta proposta é comercial e estratégica. Termos finais devem ser formalizados em contrato com assessoria jurídica.</p>
+  </div>
+</div>
+<div class="footer"><span>BCM - Proposta de Parceria Estratégica - Confidencial</span><span class="page-no">22</span></div></section>
+</body>
+</html>
