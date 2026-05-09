@@ -202,6 +202,56 @@ export default function ExecutiveSummarySection() {
           </div>
         </div>
       </div>
+      {/* 4. SOFTHOUSE EXCLUSIVA - DESTAQUE */}
+      <div className="w-full min-w-0 bg-gradient-to-r from-[#2D9B8A] to-[#1B6B5F] rounded-2xl p-5 sm:p-6 md:p-8 shadow-2xl shadow-[#2D9B8A]/20 border border-[#5EEAD4]/30 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute top-0 right-0 opacity-10 pointer-events-none">
+          <i className="bi bi-percent text-[180px] sm:text-[220px] -mt-10 -mr-10" />
+        </div>
+
+        <div className="relative z-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/20 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-widest text-white mb-4 sm:mb-6">
+            <i className="bi bi-lightning-fill" />
+            Benefício Exclusivo do Sócio-Fundador
+          </div>
+
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 sm:mb-4 leading-tight">
+            Sua Softhouse com 25% de Desconto
+          </h2>
+
+          <p className="text-base sm:text-lg text-white/90 leading-relaxed mb-6 sm:mb-8 max-w-3xl">
+            Como sócio-fundador, o Gradual passa a ter a <strong>LaVita Code como sua softhouse oficial</strong> — 
+            com <strong>25% de desconto permanente</strong> sobre qualquer concorrente do mercado. 
+            Toda demanda de tecnologia do grupo é atendida com prioridade, qualidade e economia real.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+            <div className="bg-white/15 backdrop-blur-sm rounded-xl p-4 sm:p-5 text-center border border-white/20">
+              <div className="text-3xl sm:text-4xl font-black text-white mb-1">25%</div>
+              <p className="text-white/80 text-xs sm:text-sm font-medium">Desconto garantido sobre qualquer proposta concorrente</p>
+            </div>
+            <div className="bg-white/15 backdrop-blur-sm rounded-xl p-4 sm:p-5 text-center border border-white/20">
+              <div className="text-3xl sm:text-4xl font-black text-white mb-1">∞</div>
+              <p className="text-white/80 text-xs sm:text-sm font-medium">Sem limite de projetos ou demandas mensais</p>
+            </div>
+            <div className="bg-white/15 backdrop-blur-sm rounded-xl p-4 sm:p-5 text-center border border-white/20">
+              <div className="text-3xl sm:text-4xl font-black text-white mb-1">
+                <i className="bi bi-shield-check" />
+              </div>
+              <p className="text-white/80 text-xs sm:text-sm font-medium">Prioridade máxima no atendimento e entregas</p>
+            </div>
+          </div>
+
+          <div className="mt-6 sm:mt-8 p-4 bg-black/20 rounded-xl border border-white/10">
+            <p className="text-white/90 text-sm sm:text-base leading-relaxed">
+              <strong>Exemplo prático:</strong> Se o Gradual gasta R$ 12.000/mês com tecnologia, 
+              a economia é de <strong>R$ 3.000/mês</strong> (R$ 36.000/ano). 
+              Em ~2 anos, o aporte de R$ 75k se paga <em>apenas pela eficiência</em> — 
+              sem contar a valorização do equity de 5%.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
