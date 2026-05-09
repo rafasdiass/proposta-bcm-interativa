@@ -92,7 +92,7 @@ export const Section = forwardRef<HTMLElement, SectionProps>(
         className={cn(
           'min-h-screen w-full relative',
           'flex flex-col',
-          'scroll-mt-24 md:scroll-mt-32', // Account for fixed navigation
+          'scroll-mt-28 md:scroll-mt-32', // Account for fixed navigation
           variantConfig.className,
           className
         )}
@@ -135,7 +135,7 @@ export const Section = forwardRef<HTMLElement, SectionProps>(
 
         {/* Section Content */}
         <div className="flex-1 w-full relative" data-section-content>
-          <div className="max-w-7xl mx-auto w-full px-4 pt-24 pb-28 sm:px-6 md:pt-32 md:pb-36 lg:px-8">
+          <div className="max-w-7xl mx-auto w-full px-4 pt-28 pb-28 sm:px-6 md:pt-32 md:pb-36 lg:px-8">
             {children}
           </div>
         </div>
@@ -178,7 +178,7 @@ export const SectionContainer = forwardRef<
       id={id}
       className={cn(
         'min-h-screen w-full relative',
-        'scroll-mt-24 md:scroll-mt-32',
+        'scroll-mt-28 md:scroll-mt-32',
         variantConfig.className,
         className
       )}

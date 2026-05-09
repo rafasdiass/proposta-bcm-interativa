@@ -14,7 +14,7 @@ function App() {
           <ProposalNavbar />
 
           {/* Main Content */}
-          <main id="main-content" className="w-full min-h-screen">
+          <main id="main-content" className="w-full min-h-screen pb-20 sm:pb-24">
             <SectionRenderer />
           </main>
 

@@ -1,6 +1,8 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
 :root {
+  --navbar-height-mobile: 7rem;   /* 112px - accounts for h-20 logo + py-3 */
+  --navbar-height-desktop: 8.5rem; /* 136px - accounts for md:h-28 logo + py-3 */
   --color-primary: #1b3a6b;
   --color-secondary: #2d9b8a;
   --color-accent: #f5a623;
@@ -161,6 +163,7 @@ canvas {
 .min-h-\[60vh\] { min-height: 60vh; }
 .min-h-\[85vh\] { min-height: 85vh; }
 .min-h-\[44px\] { min-height: 44px; }
+.min-h-\[48px\] { min-height: 48px; }
 .min-h-\[40px\] { min-height: 40px; }
 .max-h-\[90vh\] { max-height: 90vh; }
 .max-h-0 { max-height: 0; }
@@ -208,6 +211,7 @@ canvas {
 .max-w-6xl { max-width: 72rem; }
 .max-w-7xl { max-width: 80rem; }
 .min-w-0 { min-width: 1px; } /* Prevents zero-width collapse while allowing shrinking */
+.min-w-\[48px\] { min-width: 48px; }
 
 .fixed { position: fixed; }
 .absolute { position: absolute; }
@@ -252,8 +256,8 @@ canvas {
 .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.grid-cols-\[repeat\(auto-fit\,minmax\(250px\,1fr\)\)\] { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-.grid-cols-\[repeat\(auto-fit\,minmax\(280px\,1fr\)\)\] { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid-cols-\[repeat\(auto-fit\,minmax\(250px\,1fr\)\)\] { grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); }
+.grid-cols-\[repeat\(auto-fit\,minmax\(280px\,1fr\)\)\] { grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); }
 
 .gap-1 { gap: 0.25rem; }
 .gap-2 { gap: 0.5rem; }
@@ -333,12 +337,15 @@ canvas {
 .pt-8 { padding-top: 2rem; }
 .pt-20 { padding-top: 5rem; }
 .pt-24 { padding-top: 6rem; }
+.pt-28 { padding-top: 7rem; }
 .pb-3 { padding-bottom: 0.75rem; }
 .pb-4 { padding-bottom: 1rem; }
+.pb-20 { padding-bottom: 5rem; }
 .pb-28 { padding-bottom: 7rem; }
 .pl-20 { padding-left: 5rem; }
 
 .overflow-hidden { overflow: hidden; }
+.overflow-x-hidden { overflow-x: hidden; }
 .overflow-y-auto { overflow-y: auto; }
 .cursor-pointer { cursor: pointer; }
 .select-none { user-select: none; }
@@ -600,6 +607,7 @@ canvas {
 
 .list-decimal { list-style-type: decimal; }
 .scroll-mt-24 { scroll-margin-top: 6rem; }
+.scroll-mt-28 { scroll-margin-top: 7rem; }
 .scroll-mt-32 { scroll-margin-top: 8rem; }
 
 @media (prefers-reduced-motion: reduce) {

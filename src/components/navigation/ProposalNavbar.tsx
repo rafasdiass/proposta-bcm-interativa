@@ -23,7 +23,7 @@ export function ProposalNavbar() {
       className="fixed top-0 left-0 right-0 z-50 border-b border-[#2D9B8A]/30 bg-[#0B1A2D]/90 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.4),0_0_15px_rgba(45,155,138,0.2)]"
       role="banner"
     >
-      <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 sm:px-6">
+      <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 sm:px-6 overflow-x-hidden">
         <button
           type="button"
           onClick={() => actions.goToSection(0)}
@@ -33,7 +33,7 @@ export function ProposalNavbar() {
           <img 
             src={logoOficial} 
             alt="BCM Logo" 
-            className="h-20 md:h-28 w-auto object-contain transition-all"
+            className="h-14 sm:h-20 md:h-28 min-h-[48px] min-w-[48px] w-auto object-contain transition-all"
             style={{ 
               filter: 'invert(1) brightness(1.5) contrast(1000%)',
               mixBlendMode: 'screen'

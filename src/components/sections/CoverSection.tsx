@@ -36,7 +36,7 @@ export default function CoverSection() {
         >
           {/* Logo/Brand */}
           <div className="mb-12 w-full">
-            <h1 className="text-6xl md:text-8xl font-black mb-4">BCM</h1>
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-black mb-4">BCM</h1>
             <div className="h-1 w-24 bg-amber-400 mx-auto mb-4"></div>
             <p className="text-2xl md:text-3xl font-medium text-blue-100 tracking-wide">
               LaVita Code

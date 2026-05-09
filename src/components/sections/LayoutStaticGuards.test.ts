@@ -30,7 +30,9 @@ describe('layout static guards', () => {
   );
 
   it('does not hide horizontal overflow at the document level', () => {
-    expect(read('src/index.css')).not.toMatch(/overflow-x:\s*hidden/);
+    const css = read('src/index.css');
+    // Ensure html/body/* selectors don't set overflow-x: hidden (scoped utility classes are fine)
+    expect(css).not.toMatch(/(?:html|body|\*)\s*\{[^}]*overflow-x:\s*hidden/);
   });
 
   it('does not globally tighten heading letter spacing', () => {
