@@ -73,6 +73,7 @@ vi.mock('@/components/sections', () => ({
 vi.mock('@/components/common', () => ({
   SkipLinks: () => <div data-testid="skip-links" />,
   AppErrorBoundary: ({ children }: { children: React.ReactNode }) => <>{children}</>,
+  Footer: () => <footer data-testid="footer" />,
 }));
 
 // Mock NavigationProvider
