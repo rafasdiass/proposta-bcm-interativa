@@ -345,6 +345,7 @@ canvas {
 .pb-28 { padding-bottom: 7rem; }
 .pl-10 { padding-left: 2.5rem; }
 .pl-20 { padding-left: 5rem; }
+.pr-20 { padding-right: 5rem; }
 
 .overflow-hidden { overflow: hidden; }
 .overflow-x-hidden { overflow-x: hidden; }

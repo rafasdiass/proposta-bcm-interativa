@@ -219,7 +219,7 @@ export function ProtocolSelector({
               <div
                 key={protocol.id}
                 className={`
-                  relative p-4 rounded-lg border-2 transition-all duration-300
+                  relative p-4 rounded-lg border-2 transition-all duration-300 overflow-hidden
                   ${
                     isHighlighted
                       ? 'border-[#2D9B8A] bg-[#101F35] shadow-md'
@@ -230,14 +230,14 @@ export function ProtocolSelector({
               >
                 {/* Priority Badge */}
                 {isPriority && (
-                  <div className="absolute -top-2 -right-2 bg-[#F5A623] text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-md">
+                  <div className="absolute top-2 right-2 bg-[#F5A623] text-white px-2 py-1 rounded-full text-[10px] font-bold flex items-center gap-1 shadow-md">
                     <Star className="w-3 h-3 fill-current" aria-hidden="true" />
                     Prioritário
                   </div>
                 )}
 
                 {/* Protocol Content */}
-                <div className="space-y-2">
+                <div className="space-y-2 pr-20">
                   <h3
                     className={`
                       font-bold text-base
@@ -257,7 +257,7 @@ export function ProtocolSelector({
                 </div>
 
                 {/* Selection Indicator */}
-                {isHighlighted && (
+                {isHighlighted && !isPriority && (
                   <div className="absolute top-2 right-2">
                     <CheckCircle2
                       className="w-5 h-5 text-[#2D9B8A]"
