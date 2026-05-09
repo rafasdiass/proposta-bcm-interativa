@@ -210,6 +210,7 @@ canvas {
 .max-w-5xl { max-width: 64rem; }
 .max-w-6xl { max-width: 72rem; }
 .max-w-7xl { max-width: 80rem; }
+.max-w-\[160px\] { max-width: 160px; }
 .min-w-0 { min-width: 1px; } /* Prevents zero-width collapse while allowing shrinking */
 .min-w-\[48px\] { min-width: 48px; }
 
@@ -342,6 +343,7 @@ canvas {
 .pb-4 { padding-bottom: 1rem; }
 .pb-20 { padding-bottom: 5rem; }
 .pb-28 { padding-bottom: 7rem; }
+.pl-10 { padding-left: 2.5rem; }
 .pl-20 { padding-left: 5rem; }
 
 .overflow-hidden { overflow: hidden; }

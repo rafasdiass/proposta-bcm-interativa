@@ -73,11 +73,11 @@ export function ProposalNavbar() {
 
         <div className="ml-auto flex items-center gap-3">
           <div className="relative lg:hidden">
-            <i className="bi bi-list absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+            <i className="bi bi-list absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none z-10 text-lg" />
             <select
               value={state.currentSection}
               onChange={event => actions.goToSection(Number(event.target.value))}
-              className="h-10 rounded-full border border-white/10 bg-[#101F35] pl-9 pr-8 text-sm font-medium text-white appearance-none focus:outline-none focus:ring-2 focus:ring-[#F5A623]/50 transition-all"
+              className="h-10 rounded-full border border-white/10 bg-[#101F35] pl-10 pr-8 text-sm font-medium text-white appearance-none focus:outline-none focus:ring-2 focus:ring-[#F5A623]/50 transition-all max-w-[160px] truncate"
               aria-label="Selecionar página"
             >
               {proposalPages.map((page, index) => (
