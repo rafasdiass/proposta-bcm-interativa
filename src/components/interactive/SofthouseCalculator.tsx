@@ -93,22 +93,22 @@ export const SofthouseCalculator: React.FC = () => {
             <div className="space-y-10">
               {/* Monthly Cost Input */}
               <div className="space-y-4">
-                <div className="flex justify-between items-center">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                   <label className="flex flex-col text-xs font-black text-slate-400 uppercase tracking-widest">
                     <span className="flex items-center gap-2">
                       <i className="bi bi-cash-stack text-[#5EEAD4]" />
-                      Demanda Mensal Estimada
+                      Demanda Mensal
                     </span>
-                    <span className="text-[9px] font-medium text-slate-500 mt-1 lowercase normal-case tracking-normal">valor que o Gradual investiria em softhouses tradicionais</span>
+                    <span className="text-[9px] font-medium text-slate-500 mt-1 lowercase normal-case tracking-normal">valor investido em softhouses tradicionais</span>
                   </label>
                   <div className="flex items-center gap-2">
-                    <span className="text-slate-500 font-bold">R$</span>
+                    <span className="text-slate-500 font-bold text-sm">R$</span>
                     <input
                       type="text"
                       inputMode="numeric"
                       value={monthlyCost}
                       onChange={handleMonthlyCostChange}
-                      className="no-spin w-28 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-right text-lg font-black text-[#5EEAD4] focus:outline-none focus:ring-1 focus:ring-[#5EEAD4]"
+                      className="no-spin w-24 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-right text-base font-black text-[#5EEAD4] focus:outline-none focus:ring-1 focus:ring-[#5EEAD4]"
                     />
                   </div>
                 </div>
@@ -126,22 +126,22 @@ export const SofthouseCalculator: React.FC = () => {
               {/* Scenarios Bar */}
               <div className="space-y-3">
                 <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">Cenários de Referência</p>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {REFERENCE_EXAMPLES.map((example) => (
                     <button
                       key={example.label}
                       onClick={() => setMonthlyCost(example.monthlyCost)}
                       className={cn(
-                        "flex items-center gap-3 p-4 rounded-2xl border border-white/5 transition-all hover:scale-[1.02] active:scale-95",
+                        "flex items-center gap-3 p-3 rounded-2xl border border-white/5 transition-all hover:scale-[1.02] active:scale-95 min-w-0 overflow-hidden",
                         monthlyCost === example.monthlyCost ? "bg-[#5EEAD4] border-[#5EEAD4] text-white shadow-lg shadow-[#5EEAD4]/20" : "bg-white/5"
                       )}
                     >
-                      <div className={cn("w-10 h-10 flex items-center justify-center rounded-xl", monthlyCost === example.monthlyCost ? "bg-white/20" : "bg-[#5EEAD4]/10 text-[#5EEAD4]")}>
-                        <i className={cn(example.icon, "text-lg")} />
+                      <div className={cn("w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-xl", monthlyCost === example.monthlyCost ? "bg-white/20" : "bg-[#5EEAD4]/10 text-[#5EEAD4]")}>
+                        <i className={cn(example.icon, "text-base")} />
                       </div>
-                      <div className="text-left">
-                        <p className={cn("text-[10px] font-black uppercase tracking-wider leading-none mb-1", monthlyCost === example.monthlyCost ? "text-white/80" : "text-slate-500")}>{example.label}</p>
-                        <p className={cn("text-sm font-black", monthlyCost === example.monthlyCost ? "text-white" : "text-white")}>{formatCurrency(example.monthlyCost)}</p>
+                      <div className="text-left min-w-0">
+                        <p className={cn("text-[10px] font-black uppercase tracking-wider leading-none mb-1 truncate", monthlyCost === example.monthlyCost ? "text-white/80" : "text-slate-500")}>{example.label}</p>
+                        <p className={cn("text-sm font-black truncate", monthlyCost === example.monthlyCost ? "text-white" : "text-white")}>{formatCurrency(example.monthlyCost)}</p>
                       </div>
                     </button>
                   ))}

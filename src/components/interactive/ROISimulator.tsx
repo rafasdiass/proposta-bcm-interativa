@@ -201,7 +201,7 @@ export const ROISimulator: React.FC = () => {
             <div className="space-y-8">
               {/* Subscribers */}
               <div className="space-y-4">
-                <div className="flex justify-between items-center">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                   <label className="flex flex-col text-xs font-black text-slate-400 uppercase tracking-widest">
                     <span className="flex items-center gap-2">
                       <i className="bi bi-people-fill text-[#2D9B8A]" />
@@ -214,7 +214,7 @@ export const ROISimulator: React.FC = () => {
                     inputMode="numeric"
                     value={subscribers}
                     onChange={handleSubscribersChange}
-                    className="no-spin w-24 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-right text-lg font-black text-[#2D9B8A] focus:outline-none focus:ring-1 focus:ring-[#2D9B8A]"
+                    className="no-spin w-20 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-right text-base font-black text-[#2D9B8A] focus:outline-none focus:ring-1 focus:ring-[#2D9B8A]"
                   />
                 </div>
                 <input
@@ -254,20 +254,20 @@ export const ROISimulator: React.FC = () => {
 
               {/* Multiple */}
               <div className="space-y-4">
-                <div className="flex justify-between items-center">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                   <label className="flex flex-col text-xs font-black text-slate-400 uppercase tracking-widest">
                     <span className="flex items-center gap-2">
                       <i className="bi bi-bar-chart-fill text-blue-400" />
                       Múltiplo sobre ARR
                     </span>
-                    <span className="text-[9px] font-medium text-slate-500 mt-1 lowercase normal-case tracking-normal">valuation = receita anual (ARR) × múltiplo · referência SaaS: 5x–15x</span>
+                    <span className="text-[9px] font-medium text-slate-500 mt-1 lowercase normal-case tracking-normal">valuation = ARR × múltiplo · ref. SaaS: 5x–15x</span>
                   </label>
                   <input
                     type="text"
                     inputMode="numeric"
                     value={mrrMultiple}
                     onChange={handleMrrMultipleChange}
-                    className="no-spin w-16 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-right text-lg font-black text-blue-400 focus:outline-none"
+                    className="no-spin w-16 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-right text-base font-black text-blue-400 focus:outline-none"
                   />
                 </div>
                 <input
