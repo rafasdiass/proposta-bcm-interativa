@@ -20,6 +20,14 @@ export const proposalPages: ProposalPageConfig[] = [
     sectionIds: ['capa', 'resumo-executivo'],
   },
   {
+    id: 'softhouse',
+    slug: 'softhouse',
+    title: 'Softhouse',
+    subtitle: 'Tecnologia mais barata, sempre.',
+    variant: 'light',
+    sectionIds: ['softhouse-dedicada'],
+  },
+  {
     id: 'mercado',
     slug: 'mercado',
     title: 'Mercado',

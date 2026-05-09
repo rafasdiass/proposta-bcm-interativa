@@ -67,6 +67,9 @@ const SummaryTermsSection = lazy(
 const NextStepsSection = lazy(
   () => import('@/components/sections/NextStepsSection')
 );
+const SofthouseSection = lazy(
+  () => import('@/components/sections/SofthouseSection')
+);
 
 /**
  * Section Configuration
@@ -306,6 +309,16 @@ export const sectionConfigs: SectionConfig[] = [
     showHeader: true,
     showFooter: false,
     order: 21,
+  },
+  {
+    id: 'softhouse-dedicada',
+    slug: 'softhouse-dedicada',
+    title: 'Sua Softhouse',
+    variant: 'dark',
+    component: SofthouseSection,
+    showHeader: true,
+    showFooter: true,
+    order: 23,
   },
 ];
 

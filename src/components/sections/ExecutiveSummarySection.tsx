@@ -243,16 +243,6 @@ export default function ExecutiveSummarySection() {
               <p className="text-white/80 text-xs sm:text-sm font-medium">Prioridade máxima e alinhamento estratégico total</p>
             </div>
           </div>
-
-          <div className="mt-6 sm:mt-8 p-4 bg-black/20 rounded-xl border border-white/10">
-            <p className="text-white/90 text-sm sm:text-base leading-relaxed">
-              <strong>Na prática:</strong> Qualquer desenvolvimento que o Gradual queira criar ou que já possua em produção 
-              pode ser assumido pela LaVita Code. Se hoje gastam R$ 12.000/mês com tecnologia, 
-              passam a pagar <strong>R$ 9.000/mês</strong> pelo mesmo serviço (ou melhor). 
-              São <strong>R$ 36.000/ano de economia</strong>. O aporte se paga em ~2 anos só pela eficiência, 
-              sem contar a valorização do equity de 5%.
-            </p>
-          </div>
         </div>
       </div>
     </div>
