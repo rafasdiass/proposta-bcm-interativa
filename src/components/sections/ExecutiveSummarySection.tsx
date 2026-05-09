@@ -216,37 +216,40 @@ export default function ExecutiveSummarySection() {
           </div>
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 sm:mb-4 leading-tight">
-            Sua Softhouse com 25% de Desconto
+            LaVita Code: A Softhouse do Gradual
           </h2>
 
           <p className="text-base sm:text-lg text-white/90 leading-relaxed mb-6 sm:mb-8 max-w-3xl">
-            Como sócio-fundador, o Gradual passa a ter a <strong>LaVita Code como sua softhouse oficial</strong> — 
-            com <strong>25% de desconto permanente</strong> sobre qualquer concorrente do mercado. 
-            Toda demanda de tecnologia do grupo é atendida com prioridade, qualidade e economia real.
+            Ao se tornar sócio-fundador, o Gradual ganha uma <strong>softhouse própria</strong>. 
+            Qualquer projeto de tecnologia — novos sistemas, manutenção de produtos em produção, 
+            apps, integrações, automações — tudo passa a ser desenvolvido pela LaVita Code 
+            com <strong>25% de desconto permanente</strong> sobre qualquer concorrente. 
+            Somos a softhouse mais barata e mais alinhada que o Gradual pode ter.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
             <div className="bg-white/15 backdrop-blur-sm rounded-xl p-4 sm:p-5 text-center border border-white/20">
               <div className="text-3xl sm:text-4xl font-black text-white mb-1">25%</div>
-              <p className="text-white/80 text-xs sm:text-sm font-medium">Desconto garantido sobre qualquer proposta concorrente</p>
+              <p className="text-white/80 text-xs sm:text-sm font-medium">Mais barato que qualquer softhouse do mercado</p>
             </div>
             <div className="bg-white/15 backdrop-blur-sm rounded-xl p-4 sm:p-5 text-center border border-white/20">
               <div className="text-3xl sm:text-4xl font-black text-white mb-1">∞</div>
-              <p className="text-white/80 text-xs sm:text-sm font-medium">Sem limite de projetos ou demandas mensais</p>
+              <p className="text-white/80 text-xs sm:text-sm font-medium">Novos projetos, sistemas em produção, manutenção — tudo incluso</p>
             </div>
             <div className="bg-white/15 backdrop-blur-sm rounded-xl p-4 sm:p-5 text-center border border-white/20">
               <div className="text-3xl sm:text-4xl font-black text-white mb-1">
                 <i className="bi bi-shield-check" />
               </div>
-              <p className="text-white/80 text-xs sm:text-sm font-medium">Prioridade máxima no atendimento e entregas</p>
+              <p className="text-white/80 text-xs sm:text-sm font-medium">Prioridade máxima e alinhamento estratégico total</p>
             </div>
           </div>
 
           <div className="mt-6 sm:mt-8 p-4 bg-black/20 rounded-xl border border-white/10">
             <p className="text-white/90 text-sm sm:text-base leading-relaxed">
-              <strong>Exemplo prático:</strong> Se o Gradual gasta R$ 12.000/mês com tecnologia, 
-              a economia é de <strong>R$ 3.000/mês</strong> (R$ 36.000/ano). 
-              Em ~2 anos, o aporte de R$ 75k se paga <em>apenas pela eficiência</em> — 
+              <strong>Na prática:</strong> Qualquer desenvolvimento que o Gradual queira criar ou que já possua em produção 
+              pode ser assumido pela LaVita Code. Se hoje gastam R$ 12.000/mês com tecnologia, 
+              passam a pagar <strong>R$ 9.000/mês</strong> pelo mesmo serviço (ou melhor). 
+              São <strong>R$ 36.000/ano de economia</strong> — o aporte se paga em ~2 anos só pela eficiência, 
               sem contar a valorização do equity de 5%.
             </p>
           </div>
