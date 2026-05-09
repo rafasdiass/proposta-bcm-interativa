@@ -1,7 +1,7 @@
 import { NavigationProvider } from './contexts';
 import { SectionRenderer } from './components/sections';
 import { ProposalNavbar } from './components/navigation';
-import { SkipLinks, AppErrorBoundary } from './components/common';
+import { SkipLinks, AppErrorBoundary, Footer } from './components/common';
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
             <SectionRenderer />
           </main>
 
+          <Footer />
         </div>
       </NavigationProvider>
     </AppErrorBoundary>

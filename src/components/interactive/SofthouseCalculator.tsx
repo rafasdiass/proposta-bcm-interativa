@@ -68,7 +68,7 @@ export const SofthouseCalculator: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto space-y-6">
+    <div className="w-full overflow-x-hidden space-y-6">
       {/* Educational Header */}
       <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8">
         <h2 className="text-xl sm:text-2xl font-black text-white mb-2">Simulador de Eficiência em Tecnologia</h2>
@@ -170,18 +170,18 @@ export const SofthouseCalculator: React.FC = () => {
             </div>
 
             <div className="relative z-10 flex flex-col h-full space-y-10">
-              <h3 className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">Retorno sem Escala</h3>
+              <h3 className="text-slate-300 text-[10px] font-black uppercase tracking-[0.2em]">Retorno sem Escala</h3>
               
               <div className="space-y-8 flex-1">
                 <div>
-                  <p className="text-slate-500 text-[10px] font-black uppercase tracking-wider mb-2">Economia Mensal</p>
+                  <p className="text-slate-300 text-[10px] font-black uppercase tracking-wider mb-2">Economia Mensal</p>
                   <p className="text-3xl font-black text-white tracking-tight">
                     {formatCurrency(calculations.monthlySavings)}
                   </p>
                 </div>
 
                 <div>
-                  <p className="text-slate-500 text-[10px] font-black uppercase tracking-wider mb-2">Economia Anual</p>
+                  <p className="text-slate-300 text-[10px] font-black uppercase tracking-wider mb-2">Economia Anual</p>
                   <p className="text-4xl font-black text-[#5EEAD4] tracking-tight">
                     {formatCurrency(calculations.annualSavings)}
                   </p>

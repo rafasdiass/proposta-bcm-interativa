@@ -7,6 +7,7 @@
 export { SkipLinks } from './SkipLinks';
 export { LazyImage, LazyBackgroundImage } from './LazyImage';
 export { TestComponent } from './TestComponent';
+export { Footer } from './Footer';
 
 // Error Boundaries
 export {

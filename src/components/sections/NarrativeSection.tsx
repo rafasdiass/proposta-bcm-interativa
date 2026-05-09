@@ -106,7 +106,7 @@ export function NarrativeSection({
   const styles = toneStyles[tone];
 
   return (
-    <div className={cn('w-full space-y-10 md:space-y-12', styles.panel)}>
+    <div className={cn('w-full overflow-x-hidden space-y-10 md:space-y-12', styles.panel)}>
       <div className="w-full max-w-3xl space-y-6">
         <div
           className={cn(
@@ -188,7 +188,7 @@ export function NarrativeSection({
                       <Icon className="w-6 h-6" />
                     </div>
                   )}
-                  <div className="flex-1 min-w-[200px]">
+                  <div className="flex-1 min-w-0">
                     <h3
                       className={cn(
                         'text-lg md:text-xl font-bold mb-2',

@@ -175,7 +175,7 @@ export const ROISimulator: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto space-y-6">
+    <div className="w-full overflow-x-hidden space-y-6">
       {/* Educational Header */}
       <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8">
         <h2 className="text-xl sm:text-2xl font-black text-white mb-2">Simulador de Valorização de Equity (5%)</h2>
@@ -295,26 +295,26 @@ export const ROISimulator: React.FC = () => {
               <h3 className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em] mb-8">Estimativa de Retorno</h3>
               
               <div className="space-y-4 flex-1">
-                <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
-                  <p className="text-slate-500 text-[10px] font-black uppercase tracking-wider mb-1">MRR (Faturamento Mensal)</p>
+                <div className="bg-[#0D1B2A] p-4 rounded-2xl border border-white/10">
+                  <p className="text-slate-300 text-[10px] font-black uppercase tracking-wider mb-1">MRR (Faturamento Mensal)</p>
                   <p className="text-2xl font-black text-white tracking-tight">
                     {formatCurrency(calculations.monthlyRevenue)}
                   </p>
                 </div>
 
-                <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
-                  <p className="text-slate-500 text-[10px] font-black uppercase tracking-wider mb-1">ARR (Receita Anual Recorrente)</p>
+                <div className="bg-[#0D1B2A] p-4 rounded-2xl border border-white/10">
+                  <p className="text-slate-300 text-[10px] font-black uppercase tracking-wider mb-1">ARR (Receita Anual Recorrente)</p>
                   <p className="text-2xl font-black text-[#60A5FA] tracking-tight">
                     {formatCurrency(calculations.annualRevenue)}
                   </p>
                 </div>
 
-                <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
-                  <p className="text-slate-500 text-[10px] font-black uppercase tracking-wider mb-1">Valuation da Empresa</p>
+                <div className="bg-[#0D1B2A] p-4 rounded-2xl border border-white/10">
+                  <p className="text-slate-300 text-[10px] font-black uppercase tracking-wider mb-1">Valuation da Empresa</p>
                   <p className="text-2xl font-black text-[#5EEAD4] tracking-tight">
                     {formatCurrency(calculations.estimatedValuation)}
                   </p>
-                  <p className="text-[9px] text-slate-600 mt-1">Piso: R$ 450k (3× investimento já realizado)</p>
+                  <p className="text-[9px] text-slate-400 mt-1">Piso: R$ 450k (3× investimento já realizado)</p>
                 </div>
 
                 <div className="mt-auto bg-gradient-to-br from-[#F5A623] to-[#D97706] rounded-2xl p-5 shadow-xl shadow-amber-950/20 ring-1 ring-white/20">
@@ -345,7 +345,7 @@ export const ROISimulator: React.FC = () => {
       {/* Scenarios Bar */}
       <div className="space-y-4">
         <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest text-center">Selecione um cenário para simular:</p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
           {SCENARIOS.map(s => (
             <button
               key={s.id}
@@ -355,16 +355,16 @@ export const ROISimulator: React.FC = () => {
                 setMrrMultiple(s.mrrMultiple);
               }}
               className={cn(
-                "flex items-center gap-3 p-3 rounded-2xl border border-white/5 transition-all hover:scale-[1.02] active:scale-95 group",
+                "flex items-center gap-3 p-3 rounded-2xl border border-white/5 transition-all hover:scale-[1.02] active:scale-95 group min-w-0",
                 subscribers === s.subscribers ? "bg-[#2D9B8A] border-[#2D9B8A] shadow-lg shadow-[#2D9B8A]/20" : "bg-[#101F35]/60 backdrop-blur-md"
               )}
             >
-              <div className={cn("w-10 h-10 flex items-center justify-center rounded-xl transition-colors", subscribers === s.subscribers ? "bg-white/20" : s.bg)}>
-                <i className={cn(s.icon, "text-lg", subscribers === s.subscribers ? "text-white" : s.color)} />
+              <div className={cn("w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-xl transition-colors", subscribers === s.subscribers ? "bg-white/20" : s.bg)}>
+                <i className={cn(s.icon, "text-base", subscribers === s.subscribers ? "text-white" : s.color)} />
               </div>
-              <div className="text-left">
-                <p className={cn("text-[10px] font-black uppercase tracking-wider leading-none mb-1", subscribers === s.subscribers ? "text-white/80" : "text-slate-500")}>{s.name}</p>
-                <p className={cn("text-xs font-bold", subscribers === s.subscribers ? "text-white" : "text-slate-300")}>{s.desc}</p>
+              <div className="text-left min-w-0">
+                <p className={cn("text-[10px] font-black uppercase tracking-wider leading-none mb-1 truncate", subscribers === s.subscribers ? "text-white/80" : "text-slate-500")}>{s.name}</p>
+                <p className={cn("text-xs font-bold truncate", subscribers === s.subscribers ? "text-white" : "text-slate-300")}>{s.desc}</p>
               </div>
             </button>
           ))}
