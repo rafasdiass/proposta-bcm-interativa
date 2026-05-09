@@ -168,8 +168,8 @@ export function ProtocolSelector({
                 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
                 ${
                   isSelected
-                    ? 'bg-[#1B3A6B] text-white shadow-md hover:bg-[#152e54]'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-[#2D9B8A] text-white shadow-md hover:bg-[#35b19e]'
+                    : 'bg-[#101F35] text-slate-200 border border-[#263A59] hover:bg-[#172B48]'
                 }
               `}
               aria-pressed={isSelected}
@@ -192,20 +192,22 @@ export function ProtocolSelector({
           p-4 rounded-lg border-l-4 transition-colors duration-200
           ${
             selectedGroups.size === 0
-              ? 'bg-gray-50 border-gray-300 text-gray-600'
+              ? 'bg-[#101F35] border-[#3B5478] text-slate-300'
               : selectedGroups.size === 2
-                ? 'bg-purple-50 border-[#8B7EC8] text-gray-800'
-                : 'bg-blue-50 border-[#1B3A6B] text-gray-800'
+                ? 'bg-[#211A35] border-[#8B7EC8] text-slate-100'
+                : 'bg-[#0B1A2D] border-[#60A5FA] text-blue-100'
           }
         `}
         role="status"
         aria-live="polite"
       >
-        <p className="text-sm leading-relaxed">{getActiveDescription()}</p>
+        <p className="prose-measure text-sm leading-relaxed">
+          {getActiveDescription()}
+        </p>
       </div>
 
       {/* Protocol Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
         {protocolGroups.map(group => {
           const isGroupSelected = selectedGroups.has(group.id);
 
@@ -220,10 +222,10 @@ export function ProtocolSelector({
                   relative p-4 rounded-lg border-2 transition-all duration-300
                   ${
                     isHighlighted
-                      ? 'border-[#2D9B8A] bg-white shadow-md'
-                      : 'border-gray-200 bg-gray-50 opacity-60'
+                      ? 'border-[#2D9B8A] bg-[#101F35] shadow-md'
+                      : 'border-[#263A59] bg-[#08111F] opacity-60'
                   }
-                  ${isPriority ? 'ring-2 ring-[#F5A623] ring-offset-2' : ''}
+                  ${isPriority ? 'ring-2 ring-[#F5A623] ring-offset-2 ring-offset-[#08111F]' : ''}
                 `}
               >
                 {/* Priority Badge */}
@@ -239,15 +241,15 @@ export function ProtocolSelector({
                   <h3
                     className={`
                       font-bold text-base
-                      ${isHighlighted ? 'text-[#1B3A6B]' : 'text-gray-500'}
+                      ${isHighlighted ? 'text-white' : 'text-slate-400'}
                     `}
                   >
                     {protocol.abbreviation}
                   </h3>
                   <p
                     className={`
-                      text-sm leading-relaxed
-                      ${isHighlighted ? 'text-gray-700' : 'text-gray-500'}
+                      prose-measure text-sm leading-relaxed w-full
+                      ${isHighlighted ? 'text-slate-200' : 'text-slate-500'}
                     `}
                   >
                     {protocol.name}
@@ -272,7 +274,7 @@ export function ProtocolSelector({
       {/* Default State Message */}
       {selectedGroups.size === 0 && (
         <div className="text-center py-8">
-          <p className="text-gray-500 text-sm">
+          <p className="text-slate-400 text-sm">
             Selecione "Defaults BCM" ou "Preferenciais Gradual" para visualizar
             os protocolos.
           </p>

@@ -99,7 +99,7 @@ interface Tranche {
 
 ## Styling
 
-The component uses Tailwind CSS classes for styling:
+The component uses Bootstrap CSS classes for styling:
 - Responsive grid layout
 - Gradient backgrounds
 - Smooth transitions
@@ -158,7 +158,7 @@ This component validates the following requirements from the BCM proposal spec:
 
 - React 19.2.5
 - lucide-react (for icons)
-- Tailwind CSS (for styling)
+- Bootstrap CSS (for styling)
 
 ## Browser Support
 

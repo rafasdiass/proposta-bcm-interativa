@@ -51,7 +51,9 @@ describe('ErrorBoundary', () => {
         </ErrorBoundary>
       );
 
-      expect(screen.getByText(/Este componente não pôde ser carregado/i)).toBeInTheDocument();
+      expect(
+        screen.getByText(/Este componente não pôde ser carregado/i)
+      ).toBeInTheDocument();
     });
 
     it('should use app-level fallback when level is app', () => {
@@ -71,7 +73,9 @@ describe('ErrorBoundary', () => {
         </ErrorBoundary>
       );
 
-      expect(screen.getByText(/Erro ao carregar esta seção/i)).toBeInTheDocument();
+      expect(
+        screen.getByText(/Erro ao carregar esta seção/i)
+      ).toBeInTheDocument();
     });
   });
 
@@ -94,8 +98,12 @@ describe('ErrorBoundary', () => {
       );
 
       expect(screen.getByText(/Algo deu errado/i)).toBeInTheDocument();
-      expect(screen.getByRole('button', { name: /Tentar novamente/i })).toBeInTheDocument();
-      expect(screen.getByRole('link', { name: /Voltar ao início/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole('button', { name: /Tentar novamente/i })
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole('link', { name: /Voltar ao início/i })
+      ).toBeInTheDocument();
     });
   });
 
@@ -117,7 +125,9 @@ describe('ErrorBoundary', () => {
         </SectionErrorBoundary>
       );
 
-      expect(screen.getByText(/Erro ao carregar esta seção/i)).toBeInTheDocument();
+      expect(
+        screen.getByText(/Erro ao carregar esta seção/i)
+      ).toBeInTheDocument();
     });
 
     it('should reset when sectionId changes', () => {
@@ -158,7 +168,9 @@ describe('ErrorBoundary', () => {
         </ComponentErrorBoundary>
       );
 
-      expect(screen.getByText(/Este componente não pôde ser carregado/i)).toBeInTheDocument();
+      expect(
+        screen.getByText(/Este componente não pôde ser carregado/i)
+      ).toBeInTheDocument();
     });
 
     it('should allow retry', async () => {
@@ -170,12 +182,16 @@ describe('ErrorBoundary', () => {
         </ComponentErrorBoundary>
       );
 
-      expect(screen.getByText(/Este componente não pôde ser carregado/i)).toBeInTheDocument();
+      expect(
+        screen.getByText(/Este componente não pôde ser carregado/i)
+      ).toBeInTheDocument();
 
       // Verify retry button exists and is clickable
-      const retryButton = screen.getByRole('button', { name: /Tentar novamente/i });
+      const retryButton = screen.getByRole('button', {
+        name: /Tentar novamente/i,
+      });
       expect(retryButton).toBeInTheDocument();
-      
+
       // Click should not throw
       await user.click(retryButton);
     });

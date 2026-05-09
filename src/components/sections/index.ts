@@ -5,7 +5,7 @@
  */
 
 export { Section, SectionContainer } from './Section';
-export { SectionRenderer, SectionNavigation } from './SectionRenderer';
+export { SectionRenderer } from './SectionRenderer';
 export { SectionSkeleton } from './SectionSkeleton';
 export { SectionErrorFallback } from './SectionErrorFallback';
 

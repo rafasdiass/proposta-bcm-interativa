@@ -134,7 +134,7 @@ Works in all modern browsers that support:
 
 - React 18+
 - lucide-react (icons)
-- Tailwind CSS (styling)
+- Bootstrap CSS (styling)
 
 ## License
 

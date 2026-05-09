@@ -60,19 +60,28 @@ export function getCurrentSectionFromScroll(totalSections: number): number {
   return Math.max(0, Math.min(sectionIndex, totalSections - 1));
 }
 
+import { findPageIndexBySlug, proposalPages } from '@/data/pages';
+
 /**
- * Parse section index from URL fragment
+ * Parse page index from URL fragment.
+ * Numeric fragments are kept for backwards compatibility with older links.
  */
 export function parseSectionFromFragment(fragment: string): number | null {
-  const match = fragment.match(/^#?secao-(\d+)$/);
-  return match ? parseInt(match[1], 10) : null;
+  const cleanFragment = fragment.replace(/^#/, '');
+  const numericMatch = cleanFragment.match(/^secao-(\d+)$/);
+
+  if (numericMatch) {
+    return parseInt(numericMatch[1], 10);
+  }
+
+  return findPageIndexBySlug(cleanFragment);
 }
 
 /**
- * Generate section fragment for URL
+ * Generate page fragment for URL
  */
 export function generateSectionFragment(sectionIndex: number): string {
-  return `secao-${sectionIndex}`;
+  return proposalPages[sectionIndex]?.slug ?? `secao-${sectionIndex}`;
 }
 
 /**

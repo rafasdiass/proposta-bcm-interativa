@@ -92,7 +92,7 @@ export const Section = forwardRef<HTMLElement, SectionProps>(
         className={cn(
           'min-h-screen w-full relative',
           'flex flex-col',
-          'scroll-mt-16', // Account for sticky navigation
+          'scroll-mt-28 md:scroll-mt-32', // Account for fixed navigation
           variantConfig.className,
           className
         )}
@@ -118,7 +118,7 @@ export const Section = forwardRef<HTMLElement, SectionProps>(
         {showHeader && (
           <header className="w-full py-3 px-4 sm:py-4 sm:px-6 border-b border-current/10">
             <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
-              <div className="flex items-center space-x-2 sm:space-x-4 min-w-0">
+              <div className="flex items-center space-x-2 sm:space-x-4">
                 <h1
                   id={`${id}-title`}
                   className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold truncate"
@@ -134,8 +134,8 @@ export const Section = forwardRef<HTMLElement, SectionProps>(
         )}
 
         {/* Section Content */}
-        <div className="flex-1 w-full">
-          <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 sm:py-8">
+        <div className="flex-1 w-full relative" data-section-content>
+          <div className="max-w-7xl mx-auto w-full px-4 pt-28 pb-28 sm:px-6 md:pt-32 md:pb-36 lg:px-8">
             {children}
           </div>
         </div>
@@ -178,7 +178,7 @@ export const SectionContainer = forwardRef<
       id={id}
       className={cn(
         'min-h-screen w-full relative',
-        'scroll-mt-16',
+        'scroll-mt-28 md:scroll-mt-32',
         variantConfig.className,
         className
       )}

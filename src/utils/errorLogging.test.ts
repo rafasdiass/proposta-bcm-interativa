@@ -118,7 +118,10 @@ describe('errorLogging', () => {
       expect(storedErrors).toHaveLength(1);
       expect(storedErrors[0].errorType).toBe('network');
       expect(storedErrors[0].severity).toBe('medium');
-      expect(storedErrors[0].context).toEqual({ url: '/api/data', status: 500 });
+      expect(storedErrors[0].context).toEqual({
+        url: '/api/data',
+        status: 500,
+      });
     });
   });
 
@@ -133,7 +136,10 @@ describe('errorLogging', () => {
       expect(storedErrors).toHaveLength(1);
       expect(storedErrors[0].errorType).toBe('validation');
       expect(storedErrors[0].severity).toBe('low');
-      expect(storedErrors[0].context).toEqual({ field: 'email', value: 'invalid' });
+      expect(storedErrors[0].context).toEqual({
+        field: 'email',
+        value: 'invalid',
+      });
     });
   });
 

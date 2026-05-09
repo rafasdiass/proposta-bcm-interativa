@@ -1,5 +1,9 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Calendar } from 'lucide-react';
+import {
+  Shield,
+  TrendingUp,
+  Zap,
+} from 'lucide-react';
 
 /**
  * Cover Section Component
@@ -9,9 +13,9 @@ import { ArrowRight, Download, Calendar } from 'lucide-react';
  */
 export default function CoverSection() {
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-[85vh] flex items-center justify-center relative overflow-hidden rounded-2xl w-full border border-[#1E3354] bg-[#08111F]">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-700"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1B3A6B] via-[#102642] to-[#2D9B8A]"></div>
 
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
@@ -23,21 +27,25 @@ export default function CoverSection() {
         ></div>
       </div>
 
-      <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center text-white px-6 w-full max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="w-full"
         >
           {/* Logo/Brand */}
-          <div className="mb-8">
-            <h1 className="text-5xl md:text-7xl font-bold mb-4">BCM</h1>
-            <p className="text-xl md:text-2xl text-blue-200">LaVita Code</p>
+          <div className="mb-12 w-full">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-black mb-4">BCM</h1>
+            <div className="h-1 w-24 bg-amber-400 mx-auto mb-4"></div>
+            <p className="text-2xl md:text-3xl font-medium text-blue-100 tracking-wide">
+              LaVita Code
+            </p>
           </div>
 
           {/* Main headline */}
           <motion.h2
-            className="text-3xl md:text-5xl font-bold mb-6 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight w-full max-w-5xl mx-auto text-safe"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -46,7 +54,7 @@ export default function CoverSection() {
           </motion.h2>
 
           <motion.p
-            className="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto"
+            className="prose-measure text-xl md:text-2xl text-blue-100 mb-12 mx-auto font-light leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -54,48 +62,64 @@ export default function CoverSection() {
             Transforme o futuro da terapia ABA digital com o Grupo Gradual
           </motion.p>
 
-          {/* Investment highlight */}
+          {/* Investment highlight - Force Horizontal Row on Tablet+ */}
+          {/* Nova versão do card de investimento - Redesign Total */}
           <motion.div
-            className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-white/20"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <p className="text-sm text-blue-200 mb-2">Investimento Total</p>
-            <p className="text-4xl font-bold text-amber-300">R$ 75.000</p>
-            <p className="text-sm text-blue-200 mt-2">
-              Em 3 tranches com gatilhos de mercado
-            </p>
-          </motion.div>
-
-          {/* CTA Buttons */}
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="w-full bg-gradient-to-r from-emerald-900 to-[#101F35] rounded-3xl p-6 sm:p-8 mb-12 border border-emerald-700/30 shadow-[0_0_50px_rgba(16,185,129,0.15)] relative overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <button className="inline-flex items-center px-8 py-4 bg-amber-500 text-gray-900 font-semibold rounded-xl hover:bg-amber-400 transition-colors shadow-lg">
-              <ArrowRight className="w-5 h-5 mr-2" />
-              Explorar Proposta
-            </button>
+            {/* Decoração de fundo */}
+            <div className="absolute top-0 right-0 -mt-20 -mr-20 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl"></div>
 
-            <button className="inline-flex items-center px-8 py-4 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-colors border border-white/30">
-              <Download className="w-5 h-5 mr-2" />
-              Baixar PDF
-            </button>
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8">
+              {/* Bloco 1: Investimento */}
+              <div className="min-w-0 flex-1 bg-black/30 backdrop-blur-sm rounded-xl p-5 sm:p-6 md:p-7 border border-white/10 w-full flex flex-col items-center lg:items-start">
+                <p className="text-emerald-400 text-xs sm:text-sm font-bold uppercase tracking-widest mb-3 flex items-center">
+                  <TrendingUp className="w-4 h-4 mr-2" />
+                  Investimento Total
+                </p>
+                <p className="metric-value text-3xl sm:text-4xl md:text-5xl font-black text-white">
+                  R${' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">
+                    75.000
+                  </span>
+                </p>
+              </div>
 
-            <button className="inline-flex items-center px-8 py-4 bg-teal-600 text-white font-semibold rounded-xl hover:bg-teal-700 transition-colors">
-              <Calendar className="w-5 h-5 mr-2" />
-              Agendar Reunião
-            </button>
+              {/* Conector Central */}
+              <div className="flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-emerald-800/50 flex items-center justify-center border border-emerald-500/30 shadow-inner">
+                  <Zap className="w-5 h-5 text-emerald-400" />
+                </div>
+              </div>
+
+              {/* Bloco 2: Estrutura */}
+              <div className="min-w-0 flex-1 bg-black/30 backdrop-blur-sm rounded-xl p-5 sm:p-6 md:p-7 border border-white/10 w-full flex flex-col items-center lg:items-start">
+                <p className="text-emerald-400 text-xs sm:text-sm font-bold uppercase tracking-widest mb-3 flex items-center">
+                  <Shield className="w-4 h-4 mr-2" />
+                  Estrutura da Proposta
+                </p>
+                <div className="flex flex-col gap-1 text-center lg:text-left w-full">
+                  <p className="text-2xl md:text-3xl font-bold text-white leading-tight">
+                    3 Tranches
+                  </p>
+                  <p className="text-emerald-100 text-sm md:text-base font-medium">
+                    Vinculadas a gatilhos de mercado
+                  </p>
+                </div>
+              </div>
+            </div>
           </motion.div>
+
+
 
           {/* Confidentiality notice */}
           <motion.p
-            className="text-sm text-blue-300 mt-8 opacity-75"
+            className="text-sm text-blue-300 mt-12 font-medium tracking-wide uppercase opacity-60"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.75 }}
+            animate={{ opacity: 0.6 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
             Documento confidencial · Grupo Gradual

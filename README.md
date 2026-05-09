@@ -14,7 +14,7 @@ A modern React + TypeScript web application that transforms a static business pr
 
 - **Frontend**: React 19 + TypeScript
 - **Build Tool**: Vite 8
-- **Styling**: Tailwind CSS 4
+- **Styling**: Bootstrap CSS 5
 - **Animation**: Framer Motion 12
 - **Icons**: Lucide React 1.14
 - **Forms**: React Hook Form 7
@@ -108,7 +108,7 @@ src/
 ├── hooks/               # Custom React hooks
 ├── types/               # TypeScript type definitions
 ├── utils/               # Utility functions and constants
-├── styles/              # Global styles and Tailwind config
+├── styles/              # Global styles and Bootstrap config
 └── data/                # Static content and configuration
 public/                   # Static assets (including PDF)
 ```

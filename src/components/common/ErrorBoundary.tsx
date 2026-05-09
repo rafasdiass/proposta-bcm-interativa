@@ -25,10 +25,17 @@ interface ErrorBoundaryProps {
 /**
  * Error handler that logs errors
  */
-const handleError = (error: unknown, info: { componentStack?: string | null }) => {
-  logComponentError(error instanceof Error ? error : new Error(String(error)), info, {
-    boundary: 'ErrorBoundary',
-  });
+const handleError = (
+  error: unknown,
+  info: { componentStack?: string | null }
+) => {
+  logComponentError(
+    error instanceof Error ? error : new Error(String(error)),
+    info,
+    {
+      boundary: 'ErrorBoundary',
+    }
+  );
 };
 
 /**

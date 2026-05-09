@@ -153,7 +153,7 @@ Created `ROISimulator.responsive.test.tsx`:
 - ✅ Flexbox (99%+ browser support)
 - ✅ CSS Custom Properties (96%+ browser support)
 - ✅ `touch-manipulation` (95%+ browser support)
-- ✅ Tailwind CSS 4 (autoprefixer handles vendor prefixes)
+- ✅ Bootstrap CSS 5 (autoprefixer handles vendor prefixes)
 
 #### Target Browsers
 - ✅ Chrome (latest 2 versions)
@@ -177,7 +177,7 @@ All responsive changes preserve accessibility:
 - ✅ No media query listeners
 - ✅ Minimal layout shifts
 - ✅ No additional bundle size
-- ✅ Tailwind's JIT compiler optimizes output
+- ✅ Bootstrap CSS is bundled through Vite
 
 ## Files Modified
 
@@ -236,7 +236,7 @@ npm run test -- ROISimulator.responsive.test.tsx --run
 ✅ **COMPLETE** - All components tested and functional from 320px to 2560px
 
 ### Requirement 14.2: Responsive design with mobile-first approach
-✅ **COMPLETE** - Mobile-first Tailwind classes used throughout (`base`, `sm:`, `md:`, `lg:`, `xl:`)
+✅ **COMPLETE** - Mobile-first Bootstrap and app classes used throughout (`base`, `sm:`, `md:`, `lg:`, `xl:`)
 
 ### Requirement 14.3: Cross-browser compatibility
 ✅ **COMPLETE** - All CSS features have 95%+ browser support, autoprefixer handles vendor prefixes

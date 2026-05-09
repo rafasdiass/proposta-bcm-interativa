@@ -2,6 +2,9 @@ import { render, fireEvent, cleanup } from '@testing-library/react';
 import * as fc from 'fast-check';
 import { NavigationProvider } from './NavigationProvider';
 import { useNavigation } from './useNavigation';
+import { proposalPages } from '@/data/pages';
+
+const lastPageIndex = proposalPages.length - 1;
 
 // Test component to access navigation context
 function TestComponent() {
@@ -74,7 +77,8 @@ describe('NavigationProvider Property-Based Tests', () => {
             getByTestId('current-section').textContent || '0'
           );
           const totalSections = parseInt(
-            getByTestId('total-sections').textContent || '22'
+            getByTestId('total-sections').textContent ||
+              String(proposalPages.length)
           );
 
           // Section should always be within bounds
@@ -93,7 +97,7 @@ describe('NavigationProvider Property-Based Tests', () => {
   it('should always navigate to first section with Home and last section with End', () => {
     fc.assert(
       fc.property(
-        fc.integer({ min: 0, max: 21 }), // Starting section
+        fc.integer({ min: 0, max: lastPageIndex }), // Starting page
         startSection => {
           // Clean up before each property test run
           cleanup();
@@ -119,7 +123,9 @@ describe('NavigationProvider Property-Based Tests', () => {
 
           // Test End key
           fireEvent.keyDown(window, { code: 'End' });
-          expect(getByTestId('current-section')).toHaveTextContent('21');
+          expect(getByTestId('current-section')).toHaveTextContent(
+            String(lastPageIndex)
+          );
 
           // Clean up after each property test run
           cleanup();
@@ -138,7 +144,7 @@ describe('NavigationProvider Property-Based Tests', () => {
           fc.constant('PageDown'),
           fc.constant('Space')
         ),
-        fc.integer({ min: 0, max: 20 }), // Starting section (not last)
+        fc.integer({ min: 0, max: Math.max(0, lastPageIndex - 1) }),
         (forwardKey, startSection) => {
           // Clean up before each property test run
           cleanup();
@@ -170,7 +176,7 @@ describe('NavigationProvider Property-Based Tests', () => {
           );
 
           // Should advance by exactly one section (unless at boundary)
-          if (initialSection < 21) {
+          if (initialSection < lastPageIndex) {
             expect(finalSection).toBe(initialSection + 1);
           } else {
             expect(finalSection).toBe(initialSection); // Stay at last section
@@ -189,7 +195,7 @@ describe('NavigationProvider Property-Based Tests', () => {
     fc.assert(
       fc.property(
         fc.oneof(fc.constant('ArrowLeft'), fc.constant('PageUp')),
-        fc.integer({ min: 1, max: 21 }), // Starting section (not first)
+        fc.integer({ min: 1, max: lastPageIndex }), // Starting page (not first)
         (backwardKey, startSection) => {
           // Clean up before each property test run
           cleanup();

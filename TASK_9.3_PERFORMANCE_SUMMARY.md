@@ -140,7 +140,7 @@ dist/assets/vendor-react-BzrSGlhX.js      179.81 kB │ gzip: 56.93 kB
 
 **Strategy:** System fonts (zero network requests)
 
-Uses Tailwind's default font stack which prioritizes system fonts:
+Uses the app font stack which prioritizes system fonts:
 - No external font downloads
 - Instant text rendering
 - No FOUT (Flash of Unstyled Text)

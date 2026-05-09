@@ -1,5 +1,5 @@
-import React, { useState, useMemo, useCallback } from 'react';
-import { Calculator, TrendingDown, Clock } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { cn } from '@/utils';
 
 // Constants
 const TOTAL_INVESTMENT = 75000;
@@ -10,14 +10,14 @@ const MAX_MONTHLY_COST = 200000;
 // Reference examples from the proposal
 const REFERENCE_EXAMPLES = [
   {
-    monthlyCost: 8000,
-    annualSavings: 24000,
-    paybackYears: 3.1,
+    label: 'Médio Porte',
+    monthlyCost: 12000,
+    icon: 'bi-speedometer2',
   },
   {
-    monthlyCost: 12000,
-    annualSavings: 36000,
-    paybackYears: 2.1,
+    label: 'Avançada',
+    monthlyCost: 25000,
+    icon: 'bi-cpu-fill',
   },
 ] as const;
 
@@ -32,23 +32,16 @@ const formatCurrency = (value: number): string => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
   }).format(value);
 };
 
 // Calculate savings and payback
 const calculateSavings = (monthlyCost: number): SavingsCalculations => {
-  // Monthly savings = monthly cost * 25% discount
   const monthlySavings = monthlyCost * DISCOUNT_RATE;
-
-  // Annual savings = monthly savings * 12
   const annualSavings = monthlySavings * 12;
-
-  // Payback years = total investment / annual savings
-  // Returns null if monthly cost is zero to avoid division by zero
-  const paybackYears =
-    monthlyCost > 0 ? TOTAL_INVESTMENT / annualSavings : null;
+  const paybackYears = monthlyCost > 0 ? TOTAL_INVESTMENT / annualSavings : null;
 
   return {
     monthlySavings,
@@ -58,172 +51,169 @@ const calculateSavings = (monthlyCost: number): SavingsCalculations => {
 };
 
 export const SofthouseCalculator: React.FC = () => {
-  const [monthlyCost, setMonthlyCost] = useState(0);
+  const [monthlyCost, setMonthlyCost] = useState(12000);
 
-  // Calculate savings with memoization for performance
   const calculations = useMemo(
     () => calculateSavings(monthlyCost),
     [monthlyCost]
   );
 
-  // Handle monthly cost change
-  const handleMonthlyCostChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const value = parseFloat(e.target.value);
-      if (!isNaN(value)) {
-        setMonthlyCost(
-          Math.max(MIN_MONTHLY_COST, Math.min(MAX_MONTHLY_COST, value))
-        );
-      } else if (e.target.value === '') {
-        setMonthlyCost(0);
-      }
-    },
-    []
-  );
-
-  // Load reference example
-  const loadExample = useCallback((exampleMonthlyCost: number) => {
-    setMonthlyCost(exampleMonthlyCost);
-  }, []);
+  const handleMonthlyCostChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseFloat(e.target.value);
+    if (!isNaN(value)) {
+      setMonthlyCost(Math.max(MIN_MONTHLY_COST, Math.min(MAX_MONTHLY_COST, value)));
+    } else if (e.target.value === '') {
+      setMonthlyCost(0);
+    }
+  };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 bg-white rounded-lg shadow-lg">
-      {/* Header */}
-      <div className="flex items-start gap-2 sm:gap-3 mb-4 sm:mb-6">
-        <Calculator className="w-6 h-6 sm:w-8 sm:h-8 text-teal-600 flex-shrink-0 mt-1" />
-        <div>
-          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
-            Calculadora Softhouse LaVita Code
-          </h2>
-          <p className="text-xs sm:text-sm text-gray-600 mt-1">
-            Calcule a economia operacional com 25% de desconto em serviços de
-            desenvolvimento
-          </p>
-        </div>
-      </div>
-
-      {/* Reference Examples */}
-      <div className="mb-6 sm:mb-8">
-        <h3 className="text-xs sm:text-sm font-semibold text-gray-700 mb-2 sm:mb-3">
-          Exemplos de Referência
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
-          {REFERENCE_EXAMPLES.map((example, index) => (
-            <button
-              key={index}
-              onClick={() => loadExample(example.monthlyCost)}
-              className="px-3 py-2 sm:px-4 sm:py-3 text-left bg-teal-50 hover:bg-teal-100 active:bg-teal-200 rounded-lg transition-colors border border-teal-200 hover:border-teal-300 min-h-[44px] touch-manipulation"
-            >
-              <div className="text-xs sm:text-sm font-medium text-teal-900 mb-1">
-                {formatCurrency(example.monthlyCost)}/mês
-              </div>
-              <div className="text-xs text-teal-700">
-                Economia: {formatCurrency(example.annualSavings)}/ano • Payback:{' '}
-                {example.paybackYears} anos
-              </div>
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Input Control */}
-      <div className="mb-6 sm:mb-8">
-        <label
-          htmlFor="monthly-cost"
-          className="block text-xs sm:text-sm font-medium text-gray-700 mb-2"
-        >
-          Custo Mensal Atual de Software (BRL)
-        </label>
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-4">
-          <input
-            id="monthly-cost"
-            type="range"
-            min={MIN_MONTHLY_COST}
-            max={MAX_MONTHLY_COST}
-            step="1000"
-            value={monthlyCost}
-            onChange={handleMonthlyCostChange}
-            className="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-teal-600 touch-manipulation"
-            style={{ minHeight: '44px' }}
-          />
-          <input
-            type="number"
-            min={MIN_MONTHLY_COST}
-            max={MAX_MONTHLY_COST}
-            step="1000"
-            value={monthlyCost}
-            onChange={handleMonthlyCostChange}
-            className="w-full sm:w-32 px-3 py-2 border border-gray-300 rounded-md text-sm min-h-[44px] touch-manipulation"
-            placeholder="0"
-          />
-        </div>
-        <p className="text-xs text-gray-500 mt-1">
-          Intervalo: {formatCurrency(MIN_MONTHLY_COST)} a{' '}
-          {formatCurrency(MAX_MONTHLY_COST)}
+    <div className="w-full max-w-6xl mx-auto space-y-6">
+      {/* Educational Header */}
+      <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8">
+        <h2 className="text-xl sm:text-2xl font-black text-white mb-2">Simulador de Eficiência em Tecnologia</h2>
+        <p className="text-slate-400 text-sm leading-relaxed max-w-3xl">
+          Como parceiro fundador, o Gradual acessa o time da LaVita Code com <strong>custos reduzidos</strong>. 
+          Isso gera um retorno direto: a economia mensal acumulada "paga" o aporte inicial de {formatCurrency(TOTAL_INVESTMENT)}.
         </p>
       </div>
 
-      {/* Results */}
-      <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-lg p-4 sm:p-6 mb-4 sm:mb-6">
-        <div className="flex items-center gap-2 mb-3 sm:mb-4">
-          <TrendingDown className="w-4 h-4 sm:w-5 sm:h-5 text-teal-600 flex-shrink-0" />
-          <h3 className="text-base sm:text-lg font-semibold text-gray-900">
-            Economia com 25% de Desconto
-          </h3>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-          {/* Monthly Savings */}
-          <div className="bg-white rounded-lg p-3 sm:p-4">
-            <p className="text-xs text-gray-600 mb-1">Economia Mensal</p>
-            <p className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 break-words">
-              {formatCurrency(calculations.monthlySavings)}
-            </p>
-          </div>
-
-          {/* Annual Savings */}
-          <div className="bg-white rounded-lg p-3 sm:p-4">
-            <p className="text-xs text-gray-600 mb-1">Economia Anual</p>
-            <p className="text-lg sm:text-xl md:text-2xl font-bold text-teal-600 break-words">
-              {formatCurrency(calculations.annualSavings)}
-            </p>
-          </div>
-
-          {/* Payback Years */}
-          <div className="bg-white rounded-lg p-3 sm:p-4 border-2 border-teal-500 sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-1 mb-1">
-              <Clock className="w-3 h-3 text-gray-600 flex-shrink-0" />
-              <p className="text-xs text-gray-600">
-                Payback (Investimento: {formatCurrency(TOTAL_INVESTMENT)})
-              </p>
+      <div className="flex flex-col lg:flex-row gap-6 items-stretch">
+        
+        {/* Left Column: Inputs */}
+        <div className="w-full lg:w-[60%] space-y-6">
+          <div className="bg-[#101F35] border border-white/10 rounded-3xl p-6 shadow-2xl h-full">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 flex items-center justify-center bg-[#5EEAD4]/20 rounded-xl text-[#5EEAD4]">
+                <i className="bi bi-cpu-fill text-xl" />
+              </div>
+              <h2 className="text-xl font-black text-white tracking-tight">Custo de Desenvolvimento</h2>
             </div>
-            <p className="text-lg sm:text-xl md:text-2xl font-bold text-teal-600">
-              {calculations.paybackYears !== null
-                ? `${calculations.paybackYears.toFixed(1)} anos`
-                : 'N/A'}
-            </p>
+
+            <div className="space-y-10">
+              {/* Monthly Cost Input */}
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <label className="flex flex-col text-xs font-black text-slate-400 uppercase tracking-widest">
+                    <span className="flex items-center gap-2">
+                      <i className="bi bi-cash-stack text-[#5EEAD4]" />
+                      Demanda Mensal Estimada
+                    </span>
+                    <span className="text-[9px] font-medium text-slate-500 mt-1 lowercase normal-case tracking-normal">valor que o Gradual investiria em softhouses tradicionais</span>
+                  </label>
+                  <div className="flex items-center gap-2">
+                    <span className="text-slate-500 font-bold">R$</span>
+                    <input
+                      type="text"
+                      inputMode="numeric"
+                      value={monthlyCost}
+                      onChange={handleMonthlyCostChange}
+                      className="no-spin w-28 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-right text-lg font-black text-[#5EEAD4] focus:outline-none focus:ring-1 focus:ring-[#5EEAD4]"
+                    />
+                  </div>
+                </div>
+                <input
+                  type="range"
+                  min={MIN_MONTHLY_COST}
+                  max={MAX_MONTHLY_COST}
+                  step="1000"
+                  value={monthlyCost}
+                  onChange={handleMonthlyCostChange}
+                  className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#5EEAD4]"
+                />
+              </div>
+
+              {/* Scenarios Bar */}
+              <div className="space-y-3">
+                <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">Cenários de Referência</p>
+                <div className="grid grid-cols-2 gap-4">
+                  {REFERENCE_EXAMPLES.map((example) => (
+                    <button
+                      key={example.label}
+                      onClick={() => setMonthlyCost(example.monthlyCost)}
+                      className={cn(
+                        "flex items-center gap-3 p-4 rounded-2xl border border-white/5 transition-all hover:scale-[1.02] active:scale-95",
+                        monthlyCost === example.monthlyCost ? "bg-[#5EEAD4] border-[#5EEAD4] text-white shadow-lg shadow-[#5EEAD4]/20" : "bg-white/5"
+                      )}
+                    >
+                      <div className={cn("w-10 h-10 flex items-center justify-center rounded-xl", monthlyCost === example.monthlyCost ? "bg-white/20" : "bg-[#5EEAD4]/10 text-[#5EEAD4]")}>
+                        <i className={cn(example.icon, "text-lg")} />
+                      </div>
+                      <div className="text-left">
+                        <p className={cn("text-[10px] font-black uppercase tracking-wider leading-none mb-1", monthlyCost === example.monthlyCost ? "text-white/80" : "text-slate-500")}>{example.label}</p>
+                        <p className={cn("text-sm font-black", monthlyCost === example.monthlyCost ? "text-white" : "text-white")}>{formatCurrency(example.monthlyCost)}</p>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Discount Badge */}
+              <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-[#2D9B8A]/20 to-transparent border-l-4 border-[#2D9B8A] rounded-r-2xl">
+                <div className="w-10 h-10 flex items-center justify-center bg-[#2D9B8A] rounded-full text-white shadow-lg shadow-[#2D9B8A]/20">
+                  <i className="bi bi-percent text-lg" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black text-[#5EEAD4] uppercase tracking-[0.2em]">Retorno em Eficiência</p>
+                  <p className="text-xs text-slate-300 font-medium leading-relaxed">Você recebe o mesmo serviço de ponta, mas paga 25% a menos por ser sócio-fundador.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Zero cost message */}
-        {monthlyCost === 0 && (
-          <div className="mt-3 sm:mt-4 bg-amber-50 border border-amber-200 rounded-lg p-3">
-            <p className="text-xs sm:text-sm text-amber-900">
-              Informe um custo mensal para estimar o payback
-            </p>
+        {/* Right Column: Results */}
+        <div className="w-full lg:w-[40%]">
+          <div className="h-full flex flex-col bg-gradient-to-br from-[#09221F] to-[#0B1A2D] border border-[#5EEAD4]/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden group">
+            <div className="absolute -bottom-8 -right-8 p-8 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
+              <i className="bi bi-shield-check text-[140px] text-[#5EEAD4]" />
+            </div>
+
+            <div className="relative z-10 flex flex-col h-full space-y-10">
+              <h3 className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">Retorno sem Escala</h3>
+              
+              <div className="space-y-8 flex-1">
+                <div>
+                  <p className="text-slate-500 text-[10px] font-black uppercase tracking-wider mb-2">Economia Mensal</p>
+                  <p className="text-3xl font-black text-white tracking-tight">
+                    {formatCurrency(calculations.monthlySavings)}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-slate-500 text-[10px] font-black uppercase tracking-wider mb-2">Economia Anual</p>
+                  <p className="text-4xl font-black text-[#5EEAD4] tracking-tight">
+                    {formatCurrency(calculations.annualSavings)}
+                  </p>
+                </div>
+
+                <div className="pt-8 border-t border-white/10 mt-auto bg-white/5 p-6 rounded-2xl">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-6 h-6 flex items-center justify-center bg-[#F5A623] rounded-lg text-white">
+                      <i className="bi bi-clock-fill text-xs" />
+                    </div>
+                    <p className="text-[#F5A623] text-[10px] font-black uppercase tracking-widest">Payback do Investimento</p>
+                  </div>
+                  <div className="flex items-baseline gap-2">
+                    <p className="text-5xl font-black text-white tracking-tighter">
+                      {calculations.paybackYears !== null ? calculations.paybackYears.toFixed(1) : '--'}
+                    </p>
+                    <p className="text-xl font-bold text-slate-400">anos</p>
+                  </div>
+                  <p className="mt-3 text-slate-500 text-[9px] leading-relaxed italic uppercase tracking-wider font-bold">
+                    Tempo para a economia acumulada igualar o aporte de {formatCurrency(TOTAL_INVESTMENT)}.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-        )}
+        </div>
       </div>
 
-      {/* Disclaimer */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4">
-        <p className="text-xs text-blue-900">
-          <strong>Nota Importante:</strong> Esta calculadora mostra o retorno
-          operacional do uso dos serviços de desenvolvimento da LaVita Code com
-          25% de desconto, independente do retorno sobre o investimento em
-          equity. O payback é calculado considerando o investimento total de{' '}
-          {formatCurrency(TOTAL_INVESTMENT)} dividido pela economia anual
-          gerada.
+      <div className="flex items-center gap-3 p-4 bg-white/5 border border-white/5 rounded-2xl">
+        <i className="bi bi-arrow-right-circle-fill text-[#5EEAD4]" />
+        <p className="text-[10px] text-slate-500 font-medium leading-relaxed uppercase tracking-wider">
+          O desconto operacional garante que o investimento se pague apenas pela eficiência, independente de dividendos ou exit.
         </p>
       </div>
     </div>

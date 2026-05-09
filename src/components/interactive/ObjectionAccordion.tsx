@@ -50,7 +50,7 @@ export const objections: ObjectionItem[] = [
     id: 'technical-conflict',
     question: 'E se houver conflito técnico?',
     answer:
-      'O Gradual tem direito a voto nas decisões técnicas de produto com impacto clínico. Rafael mantém a responsabilidade de viabilidade, arquitetura e execução técnica.',
+      'O Gradual tem direito a voto nas decisões técnicas de produto com impacto clínico. A cofundadora Laura Dias mantém a responsabilidade de viabilidade, arquitetura e execução junto ao time técnico.',
     variant: 'teal',
   },
   {
@@ -154,27 +154,27 @@ export function ObjectionAccordion({
     const styles = {
       teal: {
         border: 'border-l-4 border-l-[#2D9B8A]',
-        bg: 'bg-[#2D9B8A]/5',
-        icon: 'text-[#2D9B8A]',
-        question: 'text-[#1B3A6B]',
+        bg: 'bg-[#102A27]',
+        icon: 'text-[#5EEAD4]',
+        question: 'text-white',
       },
       amber: {
         border: 'border-l-4 border-l-[#F5A623]',
-        bg: 'bg-[#F5A623]/5',
+        bg: 'bg-[#2A2110]',
         icon: 'text-[#F5A623]',
-        question: 'text-[#1B3A6B]',
+        question: 'text-white',
       },
       blue: {
         border: 'border-l-4 border-l-[#1B3A6B]',
-        bg: 'bg-[#1B3A6B]/5',
-        icon: 'text-[#1B3A6B]',
-        question: 'text-[#1B3A6B]',
+        bg: 'bg-[#101F35]',
+        icon: 'text-[#60A5FA]',
+        question: 'text-white',
       },
       purple: {
         border: 'border-l-4 border-l-[#8B7EC8]',
-        bg: 'bg-[#8B7EC8]/5',
-        icon: 'text-[#8B7EC8]',
-        question: 'text-[#1B3A6B]',
+        bg: 'bg-[#211A35]',
+        icon: 'text-[#C4B5FD]',
+        question: 'text-white',
       },
     };
     return styles[variant];
@@ -194,12 +194,12 @@ export function ObjectionAccordion({
           <div
             key={objection.id}
             className={`
-              bg-white rounded-lg shadow-sm overflow-hidden
+              border border-[#263A59] rounded-lg shadow-sm shadow-black/20 overflow-hidden
               transition-all duration-300 ease-in-out
-              hover:shadow-md
+              hover:border-[#5EEAD4]
               ${variantStyles.border}
               ${variantStyles.bg}
-              ${isExpanded ? 'ring-2 ring-offset-2 ring-gray-300' : ''}
+              ${isExpanded ? 'ring-2 ring-offset-2 ring-offset-[#08111F] ring-[#5EEAD4]' : ''}
             `}
           >
             <h3>
@@ -243,8 +243,8 @@ export function ObjectionAccordion({
               `}
               aria-hidden={!isExpanded}
             >
-              <div className="px-4 pb-4 pt-2 border-t border-gray-200">
-                <p className="text-sm text-gray-700 leading-relaxed">
+              <div className="px-4 pb-4 pt-2 border-t border-white/10">
+                <p className="prose-measure text-sm text-slate-200 leading-relaxed">
                   {objection.answer}
                 </p>
               </div>

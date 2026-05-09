@@ -1,10 +1,21 @@
-import { motion } from 'framer-motion';
-import { TrendingUp, Users, Target, Clock } from 'lucide-react';
+import React from 'react';
+
+import {
+  TrendingUp,
+  Users,
+  Target,
+  Shield,
+  Zap,
+  CheckCircle2,
+} from 'lucide-react';
+import './ExecutiveSummary.css';
 
 /**
  * Executive Summary Section Component
  *
- * High-level overview of the partnership proposal
+ * Totalmente reescrito usando Bootstrap, CSS Grid e Flexbox nativos
+ * para garantir responsividade perfeita em todas as telas,
+ * eliminando problemas de "texto em coluna".
  */
 export default function ExecutiveSummarySection() {
   const highlights = [
@@ -12,167 +23,185 @@ export default function ExecutiveSummarySection() {
       icon: TrendingUp,
       title: 'Mercado em Crescimento',
       description:
-        'Terapia ABA digital com demanda crescente e poucos players estabelecidos',
-      color: 'text-green-600',
-      bgColor: 'bg-green-50',
+        'Terapia ABA digital com demanda crescente e poucos players estabelecidos.',
+      color: 'text-emerald-400',
+      bgColor: 'bg-emerald-400/15',
     },
     {
       icon: Users,
       title: 'Parceria Estratégica',
       description:
-        'Gradual como primeiro parceiro clínico e co-fundador do produto',
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
+        'Gradual como primeiro parceiro clínico e investidor estratégico.',
+      color: 'text-blue-400',
+      bgColor: 'bg-blue-400/15',
     },
     {
       icon: Target,
       title: 'Retorno Projetado',
       description:
-        '5% da LaVita Code com potencial de valorização significativa',
-      color: 'text-amber-600',
-      bgColor: 'bg-amber-50',
+        '5% do BCM com potencial de valorização em escala nacional.',
+      color: 'text-purple-400',
+      bgColor: 'bg-purple-400/15',
     },
     {
-      icon: Clock,
+      icon: null,
       title: 'Urgência Temporal',
-      description: 'Janela de oportunidade limitada para posição de fundador',
-      color: 'text-red-600',
-      bgColor: 'bg-red-50',
+      description: 'Janela de oportunidade limitada para posição de investidor.',
+      color: 'text-amber-400',
+      bgColor: 'bg-amber-400/15',
     },
   ];
 
+  const logicGradual = [
+    'Posição de investidor em tecnologia disruptiva',
+    'Moldar produto conforme necessidades clínicas reais',
+    'Retorno financeiro com alto potencial de escala',
+    'Vantagem competitiva tecnológica no mercado ABA',
+  ];
+
+  const logicLavita = [
+    'Validação clínica com parceiro de referência',
+    'Acesso a protocolos e expertise do Gradual',
+    'Capital estratégico para acelerar o roadmap',
+    'Primeiro cliente âncora para tração imediata',
+  ];
+
   return (
-    <div className="space-y-12">
-      {/* Main summary */}
-      <motion.div
-        className="text-center max-w-4xl mx-auto"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-          Uma Oportunidade Única de Parceria
-        </h2>
+    <div className="w-full max-w-7xl mx-auto space-y-16">
+      {/* 1. HERO & FINANCIALS CARD */}
+      <div className="w-full min-w-0 bg-gradient-to-br from-[#1b3a6b] to-[#102642] rounded-2xl p-5 sm:p-6 md:p-8 shadow-2xl shadow-black/20 text-white">
+        {/* Header content */}
+        <div className="w-full mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full text-xs font-bold uppercase tracking-widest text-amber-400 mb-6 exec-badge-glow">
+            <Zap className="w-4 h-4" />
+            Visão de Futuro
+          </div>
 
-        <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-          O BCM representa a próxima geração de plataformas para terapia ABA,
-          combinando protocolos clínicos validados com tecnologia de ponta. Esta
-          proposta oferece ao Grupo Gradual a oportunidade de se tornar
-          co-fundador e moldar o futuro da terapia digital.
-        </p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+            Uma Oportunidade <br className="hidden md:block" /> Única de
+            Parceria
+          </h1>
 
-        <div className="bg-gradient-to-r from-blue-50 to-teal-50 rounded-2xl p-8 border border-blue-100">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-            <div>
-              <p className="text-3xl font-bold text-blue-600 mb-2">R$ 75.000</p>
-              <p className="text-sm text-gray-600">Investimento Total</p>
+          <p className="prose-measure text-base sm:text-lg md:text-xl text-blue-100 leading-relaxed">
+            O BCM representa a próxima geração de plataformas para terapia ABA,
+            sob a liderança da cofundadora Laura Dias. Esta proposta oferece ao
+            Grupo Gradual a oportunidade de se tornar investidor estratégico com
+            5% de participação no BCM, moldando o futuro da terapia digital.
+          </p>
+        </div>
+
+        {/* Financials Strip */}
+        <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 md:p-8">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-4 items-stretch divide-y lg:divide-y-0 lg:divide-x divide-white/20">
+            <div className="min-w-0 flex flex-col items-center lg:items-start pt-4 lg:pt-0 lg:px-5 first:pt-0">
+              <span className="text-indigo-200 text-sm font-semibold uppercase tracking-wide mb-2 text-safe">
+                Investimento Total
+              </span>
+              <span className="metric-value text-3xl sm:text-4xl md:text-5xl font-black text-amber-400">
+                R$ 75.000
+              </span>
             </div>
-            <div>
-              <p className="text-3xl font-bold text-teal-600 mb-2">5%</p>
-              <p className="text-sm text-gray-600">Participação LaVita Code</p>
+
+            <div className="min-w-0 flex flex-col items-center lg:items-start pt-6 lg:pt-0 lg:px-5">
+              <span className="text-indigo-200 text-sm font-semibold uppercase tracking-wide mb-2 text-safe">
+                Participação BCM
+              </span>
+              <span className="metric-value text-3xl sm:text-4xl md:text-5xl font-black text-amber-400">
+                5%
+              </span>
             </div>
-            <div>
-              <p className="text-3xl font-bold text-amber-600 mb-2">3</p>
-              <p className="text-sm text-gray-600">Tranches com Gatilhos</p>
+
+            <div className="min-w-0 flex flex-col items-center lg:items-start pt-6 lg:pt-0 lg:px-5">
+              <span className="text-indigo-200 text-sm font-semibold uppercase tracking-wide mb-2 text-safe">
+                Garantias
+              </span>
+              <div className="min-w-0 flex items-center gap-3 text-amber-400 text-xl font-bold">
+                <Shield className="w-6 h-6 flex-shrink-0" />
+                <span className="text-safe">3 Tranches com Gatilhos</span>
+              </div>
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
-      {/* Key highlights */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {highlights.map((highlight, index) => {
-          const Icon = highlight.icon;
+      {/* 2. HIGHLIGHTS GRID */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 w-full">
+        {highlights.map(item => {
           return (
-            <motion.div
-              key={highlight.title}
-              className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+            <div
+              key={item.title}
+              className="bg-[#101F35] rounded-xl p-5 sm:p-6 border border-[#263A59] exec-card-hover w-full min-w-0 shadow-lg shadow-black/20"
             >
-              <div className="flex items-start space-x-4">
-                <div className={`p-3 rounded-lg ${highlight.bgColor}`}>
-                  <Icon className={`w-6 h-6 ${highlight.color}`} />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {highlight.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {highlight.description}
-                  </p>
-                </div>
+              <div
+                className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${item.bgColor} ${item.color}`}
+              >
+                {item.icon
+                  ? (() => { const I = item.icon as React.ElementType; return <I className="w-7 h-7" />; })()
+                  : <i className="bi bi-hourglass-split text-2xl" />}
               </div>
-            </motion.div>
+              <h3 className="text-xl font-bold text-white mb-3">
+                {item.title}
+              </h3>
+              <p className="prose-measure text-slate-200 leading-relaxed text-sm md:text-base">
+                {item.description}
+              </p>
+            </div>
           );
         })}
       </div>
 
-      {/* Value proposition */}
-      <motion.div
-        className="bg-gray-50 rounded-2xl p-8"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-      >
-        <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-          Por que Esta Parceria Faz Sentido
-        </h3>
+      {/* 3. STRATEGIC LOGIC */}
+      <div className="w-full min-w-0 bg-[#0B1A2D] rounded-2xl p-5 sm:p-6 md:p-8 border border-white/10 shadow-xl">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-center text-white mb-12">
+          Por que esta parceria faz sentido agora?
+        </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div>
-            <h4 className="text-lg font-semibold text-gray-900 mb-4">
-              Para o Gradual
-            </h4>
-            <ul className="space-y-3 text-gray-600">
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Posição de co-fundador em tecnologia disruptiva
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Moldar produto conforme necessidades clínicas
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Retorno financeiro com potencial de escala
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Vantagem competitiva no mercado ABA
-              </li>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+          {/* Coluna Gradual */}
+          <div className="w-full min-w-0">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-12 h-12 rounded-full flex items-center justify-center font-black text-lg logic-circle-g flex-shrink-0">
+                G
+              </div>
+              <h3 className="text-2xl font-bold text-white">
+                Para o Grupo Gradual
+              </h3>
+            </div>
+            <ul className="space-y-5">
+              {logicGradual.map(text => (
+                <li key={text} className="flex items-start gap-4">
+                  <CheckCircle2 className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-safe text-slate-300 text-base sm:text-lg leading-relaxed">
+                    {text}
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-lg font-semibold text-gray-900 mb-4">
-              Para a LaVita Code
-            </h4>
-            <ul className="space-y-3 text-gray-600">
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-teal-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Validação clínica com parceiro experiente
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-teal-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Acesso a protocolos e expertise do Gradual
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-teal-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Capital para acelerar desenvolvimento
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-teal-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Primeiro cliente âncora para tração inicial
-              </li>
+          {/* Coluna LaVita */}
+          <div className="w-full min-w-0">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-12 h-12 rounded-full flex items-center justify-center font-black text-lg logic-circle-l flex-shrink-0">
+                L
+              </div>
+              <h3 className="text-2xl font-bold text-white">
+                Para a LaVita Code
+              </h3>
+            </div>
+            <ul className="space-y-5">
+              {logicLavita.map(text => (
+                <li key={text} className="flex items-start gap-4">
+                  <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-safe text-slate-300 text-base sm:text-lg leading-relaxed">
+                    {text}
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

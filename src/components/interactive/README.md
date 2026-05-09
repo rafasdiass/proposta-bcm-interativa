@@ -139,7 +139,7 @@ npm run test:run -- src/components/interactive/
 
 - React 19.2.5+
 - Lucide React (icons)
-- Tailwind CSS (styling)
+- Bootstrap CSS (styling)
 
 #### Future Enhancements
 

@@ -99,13 +99,13 @@ export const IntentForm: React.FC<IntentFormProps> = ({
   // Render success state
   if (status === 'success') {
     return (
-      <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 bg-white rounded-lg shadow-lg">
+      <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 bg-[#101F35] border border-[#263A59] rounded-lg shadow-lg shadow-black/20 text-white">
         <div className="text-center py-6 sm:py-8">
           <CheckCircle className="w-12 h-12 sm:w-16 sm:h-16 text-green-500 mx-auto mb-4" />
-          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-2">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">
             Intenção Registrada com Sucesso!
           </h2>
-          <p className="text-sm sm:text-base text-gray-600 mb-6">
+          <p className="prose-measure mx-auto text-sm sm:text-base text-slate-300 mb-6">
             Obrigado pelo seu interesse. Entraremos em contato em breve para dar
             continuidade à proposta.
           </p>
@@ -124,13 +124,13 @@ export const IntentForm: React.FC<IntentFormProps> = ({
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 bg-white rounded-lg shadow-lg max-h-[90vh] overflow-y-auto">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 bg-[#101F35] border border-[#263A59] rounded-lg shadow-lg shadow-black/20 max-h-[90vh] overflow-y-auto text-white">
       {/* Header */}
       <div className="mb-4 sm:mb-6">
-        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-2">
+        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">
           Manifestar Interesse na Proposta
         </h2>
-        <p className="text-xs sm:text-sm text-gray-600">
+        <p className="prose-measure text-xs sm:text-sm text-slate-300">
           Preencha o formulário abaixo para registrar sua intenção de avançar
           com a parceria estratégica BCM.
         </p>
@@ -142,7 +142,7 @@ export const IntentForm: React.FC<IntentFormProps> = ({
         <div className="mb-3 sm:mb-4">
           <label
             htmlFor="fullName"
-            className="block text-xs sm:text-sm font-medium text-gray-700 mb-2"
+            className="block text-xs sm:text-sm font-medium text-slate-300 mb-2"
           >
             Nome Completo <span className="text-red-500">*</span>
           </label>
@@ -156,10 +156,10 @@ export const IntentForm: React.FC<IntentFormProps> = ({
                 message: 'Nome deve ter pelo menos 3 caracteres',
               },
             })}
-            className={`w-full px-3 sm:px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 transition-colors min-h-[44px] touch-manipulation ${
+            className={`w-full px-3 sm:px-4 py-2 bg-white/5 border rounded-lg focus:outline-none focus:ring-2 transition-colors min-h-[44px] touch-manipulation ${
               errors.fullName
                 ? 'border-red-500 focus:ring-red-500'
-                : 'border-gray-300 focus:ring-blue-500'
+                : 'border-white/10 focus:ring-blue-500'
             }`}
             placeholder="Digite seu nome completo"
             aria-invalid={errors.fullName ? 'true' : 'false'}
@@ -181,7 +181,7 @@ export const IntentForm: React.FC<IntentFormProps> = ({
         <div className="mb-3 sm:mb-4">
           <label
             htmlFor="email"
-            className="block text-xs sm:text-sm font-medium text-gray-700 mb-2"
+            className="block text-xs sm:text-sm font-medium text-slate-300 mb-2"
           >
             Email Corporativo <span className="text-red-500">*</span>
           </label>
@@ -195,10 +195,10 @@ export const IntentForm: React.FC<IntentFormProps> = ({
                 message: 'Email inválido',
               },
             })}
-            className={`w-full px-3 sm:px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 transition-colors min-h-[44px] touch-manipulation ${
+            className={`w-full px-3 sm:px-4 py-2 bg-white/5 border rounded-lg focus:outline-none focus:ring-2 transition-colors min-h-[44px] touch-manipulation ${
               errors.email
                 ? 'border-red-500 focus:ring-red-500'
-                : 'border-gray-300 focus:ring-blue-500'
+                : 'border-white/10 focus:ring-blue-500'
             }`}
             placeholder="seu.email@empresa.com.br"
             aria-invalid={errors.email ? 'true' : 'false'}
@@ -220,15 +220,15 @@ export const IntentForm: React.FC<IntentFormProps> = ({
         <div className="mb-3 sm:mb-4">
           <label
             htmlFor="phone"
-            className="block text-xs sm:text-sm font-medium text-gray-700 mb-2"
+            className="block text-xs sm:text-sm font-medium text-slate-300 mb-2"
           >
-            Telefone <span className="text-gray-400 text-xs">(opcional)</span>
+            Telefone <span className="text-slate-500 text-xs">(opcional)</span>
           </label>
           <input
             id="phone"
             type="tel"
             {...register('phone')}
-            className="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors min-h-[44px] touch-manipulation"
+            className="w-full px-3 sm:px-4 py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors min-h-[44px] touch-manipulation"
             placeholder="(00) 00000-0000"
           />
         </div>
@@ -237,7 +237,7 @@ export const IntentForm: React.FC<IntentFormProps> = ({
         <div className="mb-3 sm:mb-4">
           <label
             htmlFor="role"
-            className="block text-xs sm:text-sm font-medium text-gray-700 mb-2"
+            className="block text-xs sm:text-sm font-medium text-slate-300 mb-2"
           >
             Papel na Decisão <span className="text-red-500">*</span>
           </label>
@@ -246,10 +246,10 @@ export const IntentForm: React.FC<IntentFormProps> = ({
             {...register('role', {
               required: 'Papel na decisão é obrigatório',
             })}
-            className={`w-full px-3 sm:px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 transition-colors min-h-[44px] touch-manipulation ${
+            className={`w-full px-3 sm:px-4 py-2 bg-[#0B1A2D] border rounded-lg focus:outline-none focus:ring-2 transition-colors min-h-[44px] touch-manipulation ${
               errors.role
                 ? 'border-red-500 focus:ring-red-500'
-                : 'border-gray-300 focus:ring-blue-500'
+                : 'border-white/10 focus:ring-blue-500'
             }`}
             aria-invalid={errors.role ? 'true' : 'false'}
             aria-describedby={errors.role ? 'role-error' : undefined}
@@ -277,15 +277,15 @@ export const IntentForm: React.FC<IntentFormProps> = ({
         <div className="mb-4 sm:mb-6">
           <label
             htmlFor="message"
-            className="block text-xs sm:text-sm font-medium text-gray-700 mb-2"
+            className="block text-xs sm:text-sm font-medium text-slate-300 mb-2"
           >
-            Mensagem <span className="text-gray-400 text-xs">(opcional)</span>
+            Mensagem <span className="text-slate-500 text-xs">(opcional)</span>
           </label>
           <textarea
             id="message"
             {...register('message')}
             rows={4}
-            className="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors resize-none touch-manipulation"
+            className="w-full px-3 sm:px-4 py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors resize-none touch-manipulation"
             placeholder="Comentários, dúvidas ou observações adicionais..."
           />
         </div>
@@ -309,7 +309,7 @@ export const IntentForm: React.FC<IntentFormProps> = ({
             />
             <label
               htmlFor="consentGiven"
-              className="text-xs sm:text-sm text-gray-700"
+              className="text-xs sm:text-sm text-slate-200"
             >
               <span className="text-red-500">*</span> Concordo em compartilhar
               meus dados para fins de contato comercial relacionado a esta
@@ -394,8 +394,8 @@ export const IntentForm: React.FC<IntentFormProps> = ({
       </form>
 
       {/* Confidentiality Notice */}
-      <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-gray-200">
-        <p className="text-xs text-gray-500 text-center">
+      <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-white/10">
+        <p className="prose-measure mx-auto text-xs text-slate-400 text-center">
           <strong>Confidencial:</strong> As informações desta proposta são
           confidenciais e destinadas exclusivamente ao Grupo Gradual. Ao
           submeter este formulário, você confirma estar autorizado a representar

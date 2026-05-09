@@ -129,7 +129,7 @@ When `prefers-reduced-motion: reduce` is detected:
 
 ## Styling
 
-The component uses Tailwind CSS with the BCM color palette:
+The component uses Bootstrap CSS with the BCM color palette:
 
 - **Enter Now column**: Green gradient (`#2D9B8A` to `#1B3A6B`)
 - **Wait column**: Amber gradient (`#F5A623` to `#1B3A6B`)

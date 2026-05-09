@@ -105,8 +105,8 @@ export const initializeHotjar = (): void => {
       h.hj =
         h.hj ||
         function () {
-          // eslint-disable-next-line prefer-rest-params
-          ((h.hj as { q?: unknown[] }).q = (h.hj as { q?: unknown[] }).q || []).push(
+          ((h.hj as { q?: unknown[] }).q =
+            (h.hj as { q?: unknown[] }).q || []).push(
             // eslint-disable-next-line prefer-rest-params
             arguments
           );
@@ -332,7 +332,14 @@ export const trackError = (
     category: 'Error',
     action: `${errorType}_error`,
     label: errorMessage.substring(0, 100),
-    value: severity === 'critical' ? 4 : severity === 'high' ? 3 : severity === 'medium' ? 2 : 1,
+    value:
+      severity === 'critical'
+        ? 4
+        : severity === 'high'
+          ? 3
+          : severity === 'medium'
+            ? 2
+            : 1,
   });
 };
 
