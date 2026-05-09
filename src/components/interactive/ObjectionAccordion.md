@@ -121,7 +121,7 @@ The component follows the WAI-ARIA Accordion pattern:
 
 ## Styling
 
-The component uses Tailwind CSS with custom brand colors:
+The component uses Bootstrap CSS with custom brand colors:
 
 - **Teal**: `#2D9B8A` (growth)
 - **Amber**: `#F5A623` (urgency)

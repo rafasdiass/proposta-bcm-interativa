@@ -2,6 +2,9 @@ import { render, screen, act, fireEvent } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { NavigationProvider } from './NavigationProvider';
 import { useNavigation } from './useNavigation';
+import { proposalPages } from '@/data/pages';
+
+const lastPageIndex = proposalPages.length - 1;
 
 // Test component to access navigation context
 function TestComponent() {
@@ -54,7 +57,9 @@ describe('NavigationProvider', () => {
 
       expect(screen.getByTestId('mode')).toHaveTextContent('landing');
       expect(screen.getByTestId('current-section')).toHaveTextContent('0');
-      expect(screen.getByTestId('total-sections')).toHaveTextContent('22');
+      expect(screen.getByTestId('total-sections')).toHaveTextContent(
+        String(proposalPages.length)
+      );
       expect(screen.getByTestId('is-transitioning')).toHaveTextContent('false');
     });
   });
@@ -130,12 +135,13 @@ describe('NavigationProvider', () => {
       const user = userEvent.setup();
       renderWithProvider();
 
-      // Go to last section (21, since we have 22 sections 0-21)
       for (let i = 0; i < 25; i++) {
         await user.click(screen.getByText('Next Section'));
       }
 
-      expect(screen.getByTestId('current-section')).toHaveTextContent('21');
+      expect(screen.getByTestId('current-section')).toHaveTextContent(
+        String(lastPageIndex)
+      );
     });
   });
 
@@ -213,7 +219,9 @@ describe('NavigationProvider', () => {
     it('should go to last section with End', () => {
       fireEvent.keyDown(window, { code: 'End' });
 
-      expect(screen.getByTestId('current-section')).toHaveTextContent('21');
+      expect(screen.getByTestId('current-section')).toHaveTextContent(
+        String(lastPageIndex)
+      );
     });
 
     it('should exit presentation mode with Escape', () => {
@@ -257,7 +265,11 @@ describe('NavigationProvider', () => {
 
       await user.click(screen.getByText('Go to Section 5'));
 
-      expect(replaceStateSpy).toHaveBeenCalledWith(null, '', '#secao-5');
+      expect(replaceStateSpy).toHaveBeenCalledWith(
+        null,
+        '',
+        `#${proposalPages[5].slug}`
+      );
     });
 
     it('should handle initial URL fragment on load', () => {

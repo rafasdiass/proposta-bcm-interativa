@@ -158,7 +158,7 @@ export const TrancheTimelineDemo: React.FC = () => {
             <div>
               <h3 className="font-semibold mb-2">Styling:</h3>
               <ul className="list-disc list-inside text-sm space-y-1">
-                <li>Tailwind CSS for responsive design</li>
+                <li>Bootstrap CSS for responsive design</li>
                 <li>Smooth transitions and animations</li>
                 <li>Color gradient interpolation</li>
                 <li>Hover and focus states</li>

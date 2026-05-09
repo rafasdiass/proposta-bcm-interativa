@@ -6,7 +6,6 @@
     "module": "esnext",
     "types": ["vite/client"],
     "skipLibCheck": true,
-    "ignoreDeprecations": "6.0",
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -27,17 +26,16 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
 
-    /* Path Aliases - Using Vite's resolver instead of TypeScript's deprecated baseUrl */
-    "baseUrl": ".",
+    /* Path Aliases - Vite resolves these via vite.config.ts */
     "paths": {
-      "@/*": ["src/*"],
-      "@/components/*": ["src/components/*"],
-      "@/contexts/*": ["src/contexts/*"],
-      "@/hooks/*": ["src/hooks/*"],
-      "@/types/*": ["src/types/*"],
-      "@/utils/*": ["src/utils/*"],
-      "@/styles/*": ["src/styles/*"],
-      "@/data/*": ["src/data/*"]
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/contexts/*": ["./src/contexts/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/types/*": ["./src/types/*"],
+      "@/utils/*": ["./src/utils/*"],
+      "@/styles/*": ["./src/styles/*"],
+      "@/data/*": ["./src/data/*"]
     },
 
     /* Linting */

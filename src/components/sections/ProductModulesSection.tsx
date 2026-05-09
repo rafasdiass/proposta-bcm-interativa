@@ -8,17 +8,17 @@ import { ModuleCards } from '../interactive/ModuleCards';
 
 export default function ProductModulesSection() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="text-center mb-12">
-        <div className="text-sm font-bold text-[#2D9B8A] uppercase tracking-wider mb-2">
+    <div className="w-full min-w-0 space-y-10 md:space-y-12">
+      <div className="w-full space-y-6">
+        <div className="text-sm font-bold text-[#5EEAD4] uppercase tracking-wider">
           O Produto
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-[#1B3A6B] mb-4">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight text-safe">
           12 Módulos Integrados
-        </h1>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+        </h2>
+        <p className="prose-measure text-xl text-slate-300 leading-relaxed">
           A proposta não é financiar uma ideia. É acelerar um ativo funcional
-          com módulos já definidos.
+          com módulos já definidos e prontos para escala.
         </p>
       </div>
 

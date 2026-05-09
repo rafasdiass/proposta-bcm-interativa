@@ -63,7 +63,7 @@ export const prefersReducedMotion = (): boolean => {
 
 /**
  * Concatenate class names conditionally
- * Simple utility for combining Tailwind classes
+ * Simple utility for combining Bootstrap and app classes
  */
 export const cn = (
   ...classes: (string | undefined | null | false)[]

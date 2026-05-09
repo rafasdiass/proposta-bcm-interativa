@@ -255,7 +255,7 @@ VITE_INTENT_ENDPOINT=https://api.example.com/intent
 
 ## Styling
 
-The component uses Tailwind CSS with the project's custom theme:
+The component uses Bootstrap CSS with the project's custom theme:
 
 - **Primary Color**: Blue (#1B3A6B) for primary actions
 - **Error Color**: Red for validation errors

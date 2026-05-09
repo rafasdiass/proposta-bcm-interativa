@@ -199,8 +199,8 @@ export function ComparisonTable({
       {/* Comparison grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
         {/* Enter Now column */}
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-t-[#2D9B8A]">
-          <div className="bg-gradient-to-r from-[#2D9B8A] to-[#1B3A6B] px-4 py-3 sm:px-6 sm:py-4">
+        <div className="bg-[#101F35] rounded-lg shadow-lg shadow-black/20 overflow-hidden border border-[#263A59] border-t-4 border-t-[#2D9B8A]">
+          <div className="bg-[#09221F] px-4 py-3 sm:px-6 sm:py-4">
             <h3 className="text-base sm:text-lg md:text-xl font-bold text-white text-center">
               Se o Gradual entra agora
             </h3>
@@ -228,7 +228,7 @@ export function ComparisonTable({
                   className="w-5 h-5 sm:w-6 sm:h-6 text-[#2D9B8A] flex-shrink-0 mt-0.5"
                   aria-hidden="true"
                 />
-                <span className="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed">
+                <span className="text-xs sm:text-sm md:text-base text-slate-200 leading-relaxed">
                   {item.text}
                 </span>
               </li>
@@ -237,8 +237,8 @@ export function ComparisonTable({
         </div>
 
         {/* Wait column */}
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-t-[#F5A623]">
-          <div className="bg-gradient-to-r from-[#F5A623] to-[#1B3A6B] px-4 py-3 sm:px-6 sm:py-4">
+        <div className="bg-[#101F35] rounded-lg shadow-lg shadow-black/20 overflow-hidden border border-[#263A59] border-t-4 border-t-[#F5A623]">
+          <div className="bg-[#3B2608] px-4 py-3 sm:px-6 sm:py-4">
             <h3 className="text-base sm:text-lg md:text-xl font-bold text-white text-center">
               Se o Gradual espera
             </h3>
@@ -266,7 +266,7 @@ export function ComparisonTable({
                   className="w-5 h-5 sm:w-6 sm:h-6 text-[#F5A623] flex-shrink-0 mt-0.5"
                   aria-hidden="true"
                 />
-                <span className="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed">
+                <span className="text-xs sm:text-sm md:text-base text-slate-200 leading-relaxed">
                   {item.text}
                 </span>
               </li>

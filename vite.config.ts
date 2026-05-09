@@ -82,7 +82,7 @@ export default defineConfig(({ mode }) => {
     server: {
       // Configure MIME types for development server
       headers: {
-        'Cache-Control': 'public, max-age=31536000',
+        'Cache-Control': 'no-store',
       },
     },
     // Optimize dependencies

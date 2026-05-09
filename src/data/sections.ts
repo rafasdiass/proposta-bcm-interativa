@@ -46,6 +46,9 @@ const ExpectedReturnSection = lazy(
 const PreScaleReturnSection = lazy(
   () => import('@/components/sections/PreScaleReturnSection')
 );
+const InvestmentSimulatorsSection = lazy(
+  () => import('@/components/sections/InvestmentSimulatorsSection')
+);
 const GovernanceSection = lazy(
   () => import('@/components/sections/GovernanceSection')
 );
@@ -233,6 +236,16 @@ export const sectionConfigs: SectionConfig[] = [
     showHeader: true,
     showFooter: true,
     order: 15,
+  },
+  {
+    id: 'simuladores-investimento',
+    slug: 'simuladores-investimento',
+    title: 'Simuladores de Investimento',
+    variant: 'dark',
+    component: InvestmentSimulatorsSection,
+    showHeader: true,
+    showFooter: true,
+    order: 22,
   },
   {
     id: 'governanca',

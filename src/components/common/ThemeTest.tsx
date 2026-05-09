@@ -1,5 +1,5 @@
 /**
- * Theme Test Component - Verifies Tailwind CSS configuration
+ * Theme Test Component - Verifies Bootstrap CSS configuration
  * This component tests the custom brand colors and theme setup
  */
 
@@ -8,7 +8,7 @@ import React from 'react';
 const ThemeTest: React.FC = () => {
   return (
     <div className="p-8 space-y-6">
-      <h2 className="text-2xl font-bold mb-4">Tailwind CSS Theme Test</h2>
+      <h2 className="text-2xl font-bold mb-4">Bootstrap CSS Theme Test</h2>
 
       {/* Brand Colors Test */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

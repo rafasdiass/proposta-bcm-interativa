@@ -91,7 +91,7 @@ The component follows WCAG AA guidelines:
 
 ## Styling
 
-The component uses Tailwind CSS with custom brand colors:
+The component uses Bootstrap CSS with custom brand colors:
 
 - **Teal** (#2D9B8A): Growth-related modules
 - **Amber** (#F5A623): Core/infrastructure modules

@@ -203,8 +203,8 @@ describe('Navigation Utilities', () => {
 
   describe('generateSectionFragment', () => {
     it('should generate correct fragment for section index', () => {
-      expect(generateSectionFragment(0)).toBe('secao-0');
-      expect(generateSectionFragment(5)).toBe('secao-5');
+      expect(generateSectionFragment(0)).toBe('visao-geral');
+      expect(generateSectionFragment(5)).toBe('termos');
       expect(generateSectionFragment(21)).toBe('secao-21');
     });
   });

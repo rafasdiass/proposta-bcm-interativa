@@ -9,6 +9,7 @@ export {
   ProgressIndicator,
   ProgressIndicatorCompact,
 } from './ProgressIndicator';
+export { ProposalNavbar } from './ProposalNavbar';
 export { ModeToggleDemo } from './ModeToggleDemo';
 export { ProgressIndicatorDemo } from './ProgressIndicatorDemo';
 export { NavigationDemo } from './NavigationDemo';

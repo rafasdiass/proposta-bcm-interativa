@@ -37,7 +37,9 @@ export const logErrorToConsole = (entry: ErrorLogEntry): void => {
     critical: '🔥',
   }[entry.severity];
 
-  console.group(`${emoji} Error [${entry.severity.toUpperCase()}] - ${entry.errorType}`);
+  console.group(
+    `${emoji} Error [${entry.severity.toUpperCase()}] - ${entry.errorType}`
+  );
   console.error('Message:', entry.message);
   if (entry.stack) {
     console.error('Stack:', entry.stack);
@@ -63,7 +65,14 @@ export const logErrorToAnalytics = (entry: ErrorLogEntry): void => {
       category: 'Error',
       action: `${entry.errorType}_error`,
       label: entry.message.substring(0, 100), // Limit label length
-      value: entry.severity === 'critical' ? 4 : entry.severity === 'high' ? 3 : entry.severity === 'medium' ? 2 : 1,
+      value:
+        entry.severity === 'critical'
+          ? 4
+          : entry.severity === 'high'
+            ? 3
+            : entry.severity === 'medium'
+              ? 2
+              : 1,
     });
   } catch (error) {
     // Fail silently - don't let error tracking cause more errors

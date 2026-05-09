@@ -125,7 +125,7 @@ All 22 section components are lazy-loaded using `React.lazy()`:
 
 **Strategy:** System fonts with fallbacks
 
-The application uses Tailwind's default font stack which prioritizes system fonts:
+The application uses the app font stack which prioritizes system fonts:
 - No external font downloads required
 - Zero network requests for fonts
 - Instant text rendering

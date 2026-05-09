@@ -245,9 +245,9 @@ function checkResponsive() {
 
   const checks = [
     {
-      name: 'Tailwind CSS configuration',
-      file: 'tailwind.config.js',
-      description: 'Responsive breakpoints configured',
+      name: 'Bootstrap stylesheet entry',
+      file: 'src/index.css',
+      description: 'Bootstrap and app responsive styles configured',
     },
     {
       name: 'Responsive implementation docs',
@@ -308,7 +308,7 @@ function generateReport(bundleAnalysis) {
   log('\n📱 Responsive Design:', 'blue');
   log('  • Mobile-first approach (320px - 2560px)');
   log('  • Touch-friendly targets (44x44px minimum)');
-  log('  • Flexible layouts with Tailwind CSS');
+  log('  • Flexible layouts with Bootstrap CSS');
 
   log('\n🌐 Cross-Browser Compatibility:', 'blue');
   log('  • Chrome (latest 2 versions)');

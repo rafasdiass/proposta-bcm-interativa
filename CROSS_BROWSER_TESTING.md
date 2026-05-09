@@ -23,7 +23,7 @@ The Interactive BCM Proposal application is designed to be compatible with:
 - No legacy browser support needed
 
 ✅ **CSS Features**
-- Tailwind CSS 4.2.4 (modern CSS with fallbacks)
+- Bootstrap CSS 5.3.8 (modern CSS with fallbacks)
 - Flexbox and Grid layouts (widely supported)
 - CSS custom properties (supported in all target browsers)
 - CSS transitions and animations (supported)
@@ -113,7 +113,7 @@ The Interactive BCM Proposal application is designed to be compatible with:
 **iOS-Specific Considerations:**
 - Touch target sizes: 44x44px minimum (implemented)
 - Viewport meta tag: No maximum-scale restriction (implemented)
-- Safe area insets: Handled by Tailwind CSS
+- Safe area insets: Handled by Bootstrap CSS
 - Touch events: Properly handled with `touch-manipulation`
 
 ### Edge (Latest 2 Versions)

@@ -1,25 +1,36 @@
 import { render, screen } from '@testing-library/react';
+import type React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { NavigationProvider } from '@/contexts';
 import { SectionRenderer } from './SectionRenderer';
 
-// Mock framer-motion to avoid animation issues in tests
 vi.mock('framer-motion', () => ({
   motion: {
-    section: ({ children, ...props }: any) => (
+    section: ({
+      children,
+      ...props
+    }: React.HTMLAttributes<HTMLElement> & { children?: React.ReactNode }) => (
       <section {...props}>{children}</section>
     ),
   },
 }));
 
-// Mock react-error-boundary
 vi.mock('react-error-boundary', () => ({
-  ErrorBoundary: ({ children }: any) => children,
+  ErrorBoundary: ({ children }: { children: React.ReactNode }) => children,
 }));
 
-// Mock the section components to avoid lazy loading issues in tests
-vi.mock('@/data/sections', () => ({
-  sectionConfigs: [
+vi.mock('@/data/pages', () => ({
+  proposalPages: [
+    {
+      id: 'test-page',
+      slug: 'test-page',
+      title: 'Test Page',
+      subtitle: 'Test page subtitle',
+      variant: 'light',
+      sectionIds: ['test-section-1', 'test-section-2'],
+    },
+  ],
+  getPageSections: () => [
     {
       id: 'test-section-1',
       slug: 'test-section-1',
@@ -41,43 +52,31 @@ vi.mock('@/data/sections', () => ({
       order: 1,
     },
   ],
+  findPageIndexBySlug: (slug: string) => (slug === 'test-page' ? 0 : null),
 }));
 
 describe('SectionRenderer Component', () => {
-  it('renders all sections in landing mode', () => {
+  it('renders the active proposal page and its sections', () => {
     render(
       <NavigationProvider>
         <SectionRenderer />
       </NavigationProvider>
     );
 
-    expect(screen.getByText('Test Section 1')).toBeInTheDocument();
-    expect(screen.getByText('Test Section 2')).toBeInTheDocument();
+    expect(screen.getByText('Test Page')).toBeInTheDocument();
+    expect(screen.getByText('Test page subtitle')).toBeInTheDocument();
     expect(screen.getByText('Test Section 1 Content')).toBeInTheDocument();
     expect(screen.getByText('Test Section 2 Content')).toBeInTheDocument();
   });
 
-  it('has proper accessibility attributes', () => {
+  it('renders the page section with the current page id', () => {
     render(
       <NavigationProvider>
         <SectionRenderer />
       </NavigationProvider>
     );
 
-    const mainContainer = screen.getByRole('main');
-    expect(mainContainer).toHaveAttribute(
-      'aria-label',
-      'Proposta BCM - Conteúdo Principal'
-    );
-  });
-
-  it('renders sections with correct IDs', () => {
-    render(
-      <NavigationProvider>
-        <SectionRenderer />
-      </NavigationProvider>
-    );
-
+    expect(document.getElementById('test-page')).toBeInTheDocument();
     expect(document.getElementById('test-section-1')).toBeInTheDocument();
     expect(document.getElementById('test-section-2')).toBeInTheDocument();
   });

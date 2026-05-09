@@ -218,7 +218,7 @@ The component works independently but can be integrated with the navigation syst
 
 - React 18+
 - lucide-react (CheckCircle2, Star icons)
-- Tailwind CSS 3+
+- Bootstrap CSS 5+
 
 ## Related Components
 

@@ -1,0 +1,27 @@
+/* ExecutiveSummary.css - Limpo e refatorado */
+/* Toda a estrutura frágil foi removida. O layout agora usa utilitários Bootstrap e do app. */
+/* Mantemos apenas animações ou estilos base estritos se necessário. */
+
+.exec-badge-glow {
+  box-shadow: 0 0 15px rgba(245, 166, 35, 0.3);
+}
+
+.exec-card-hover {
+  transition: all 0.3s ease;
+}
+
+.exec-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.15);
+  border-color: #5EEAD4;
+}
+
+.logic-circle-g {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.logic-circle-l {
+  background-color: #ccfbf1;
+  color: #0f766e;
+}

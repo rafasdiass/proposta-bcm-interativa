@@ -105,22 +105,22 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({
 
   // Determine color based on urgency
   const colorClass = urgent
-    ? 'text-amber-600 border-amber-500 bg-amber-50'
-    : 'text-blue-600 border-blue-500 bg-blue-50';
+    ? 'bg-amber-50 border-amber-500 text-amber-100 border-[#F5A623] bg-[#3B2608]'
+    : 'bg-blue-50 border-blue-500 text-blue-100 border-[#60A5FA] bg-[#0B1A2D]';
 
-  const iconColorClass = urgent ? 'text-amber-600' : 'text-blue-600';
+  const iconColorClass = urgent ? 'text-[#F5A623]' : 'text-[#60A5FA]';
 
   // Animation class (respects reduced motion)
   const animationClass = !prefersReducedMotion && urgent ? 'animate-pulse' : '';
 
   return (
     <div
-      className={`w-full max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg ${className}`}
+      className={`w-full max-w-4xl mx-auto p-4 sm:p-6 bg-[#101F35] border border-[#263A59] rounded-xl shadow-lg shadow-black/20 text-white ${className}`}
     >
       {/* Header */}
       <div className="flex items-center gap-3 mb-6">
         <Clock className={`w-8 h-8 ${iconColorClass}`} />
-        <h2 className="text-2xl font-bold text-gray-900">
+        <h2 className="text-xl sm:text-2xl font-bold text-white">
           Validade da Proposta
         </h2>
       </div>
@@ -128,14 +128,14 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({
       {/* Countdown Display */}
       {timeRemaining.isExpired ? (
         // Expired State
-        <div className="bg-red-50 border-2 border-red-500 rounded-lg p-8">
+        <div className="bg-[#3A1114] border-2 border-red-500 rounded-lg p-6 sm:p-8">
           <div className="flex items-center justify-center gap-3">
-            <AlertCircle className="w-12 h-12 text-red-600" />
+            <AlertCircle className="w-12 h-12 text-red-300" />
             <div>
-              <p className="text-3xl font-bold text-red-600">
+              <p className="text-2xl sm:text-3xl font-bold text-red-100">
                 Proposta Expirada
               </p>
-              <p className="text-sm text-red-700 mt-2">
+              <p className="text-sm text-red-200 mt-2">
                 Entre em contato para renovar a proposta
               </p>
             </div>
@@ -144,14 +144,14 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({
       ) : (
         // Active Countdown
         <div
-          className={`border-2 rounded-lg p-8 transition-colors duration-300 ${colorClass} ${animationClass}`}
+          className={`border-2 rounded-lg p-4 sm:p-6 transition-colors duration-300 ${colorClass} ${animationClass}`}
         >
           {/* Time Units Grid */}
-          <div className="grid grid-cols-4 gap-4 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 mb-6">
             {/* Days */}
             <div className="text-center">
               <div
-                className="text-5xl font-bold mb-2"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 tabular-nums"
                 aria-label={`${timeRemaining.days} dias`}
               >
                 {formatNumber(timeRemaining.days)}
@@ -164,7 +164,7 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({
             {/* Hours */}
             <div className="text-center">
               <div
-                className="text-5xl font-bold mb-2"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 tabular-nums"
                 aria-label={`${timeRemaining.hours} horas`}
               >
                 {formatNumber(timeRemaining.hours)}
@@ -177,7 +177,7 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({
             {/* Minutes */}
             <div className="text-center">
               <div
-                className="text-5xl font-bold mb-2"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 tabular-nums"
                 aria-label={`${timeRemaining.minutes} minutos`}
               >
                 {formatNumber(timeRemaining.minutes)}
@@ -190,7 +190,7 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({
             {/* Seconds */}
             <div className="text-center">
               <div
-                className="text-5xl font-bold mb-2"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 tabular-nums"
                 aria-label={`${timeRemaining.seconds} segundos`}
               >
                 {formatNumber(timeRemaining.seconds)}
@@ -203,16 +203,16 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({
 
           {/* Urgency Message */}
           {urgent && (
-            <div className="bg-white rounded-lg p-4 border border-amber-300">
-              <p className="text-sm font-semibold text-amber-900 text-center">
-                ⚠️ Tempo limitado! Esta proposta expira em breve.
+            <div className="bg-[#101F35] rounded-lg p-4 border border-[#F5A623]">
+              <p className="text-sm font-semibold text-amber-100 text-center">
+                Tempo limitado! Esta proposta expira em breve.
               </p>
             </div>
           )}
 
           {/* Deadline Information */}
           <div className="mt-6 text-center">
-            <p className="text-sm opacity-75">
+            <p className="prose-measure mx-auto text-sm opacity-75">
               Válida até:{' '}
               <span className="font-semibold">
                 {deadline.toLocaleDateString('pt-BR', {
@@ -230,8 +230,8 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({
       )}
 
       {/* Accessibility Note */}
-      <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
-        <p className="text-xs text-gray-700">
+      <div className="mt-6 bg-[#08111F] border border-[#263A59] rounded-lg p-4">
+        <p className="prose-measure text-xs text-slate-300">
           <strong>Nota:</strong> O contador é atualizado automaticamente a cada
           segundo.{' '}
           {prefersReducedMotion &&

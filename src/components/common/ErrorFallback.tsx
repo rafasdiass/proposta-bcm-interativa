@@ -14,7 +14,7 @@ import type { FallbackProps } from 'react-error-boundary';
  */
 export function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
   const errorObj = error instanceof Error ? error : new Error(String(error));
-  
+
   return (
     <div
       className="min-h-screen flex items-center justify-center bg-gray-50 px-4"
@@ -29,7 +29,10 @@ export function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
       >
         <div className="flex justify-center mb-4">
           <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
-            <AlertTriangle className="w-8 h-8 text-red-600" aria-hidden="true" />
+            <AlertTriangle
+              className="w-8 h-8 text-red-600"
+              aria-hidden="true"
+            />
           </div>
         </div>
 
@@ -85,7 +88,7 @@ export function SectionErrorFallback({
   resetErrorBoundary,
 }: FallbackProps) {
   const errorObj = error instanceof Error ? error : new Error(String(error));
-  
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -140,7 +143,7 @@ export function ComponentErrorFallback({
   resetErrorBoundary,
 }: FallbackProps) {
   const errorObj = error instanceof Error ? error : new Error(String(error));
-  
+
   return (
     <div
       className="p-4 bg-yellow-50 border border-yellow-200 rounded"

@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { CheckCircle2, Circle, Lock } from 'lucide-react';
+import { cn } from '@/utils';
 
 // Tranche data structure
 interface Tranche {
@@ -110,42 +111,57 @@ export const TrancheTimeline: React.FC = () => {
   const getStatusIcon = (status: Tranche['status']) => {
     switch (status) {
       case 'completed':
-        return <CheckCircle2 className="w-6 h-6 text-green-600" />;
+        return <CheckCircle2 className="w-6 h-6 text-[#5EEAD4]" />;
       case 'active':
-        return <Circle className="w-6 h-6 text-blue-600 fill-blue-600" />;
+        return <Circle className="w-6 h-6 text-[#60A5FA] fill-[#60A5FA]" />;
       case 'pending':
-        return <Lock className="w-6 h-6 text-gray-400" />;
+        return <Lock className="w-6 h-6 text-slate-400" />;
     }
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 bg-[#101F35] border border-[#263A59] rounded-2xl shadow-xl shadow-black/40 text-white">
       {/* Header */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">
-          Timeline de Investimento
-        </h2>
-        <div className="flex items-baseline gap-2">
-          <p className="text-lg text-gray-600">Investimento Total:</p>
-          <p
-            className="text-3xl font-bold text-teal-600"
-            aria-label={`Investimento total de ${formatCurrency(TOTAL_INVESTMENT)}`}
-          >
-            {formatCurrency(TOTAL_INVESTMENT)}
-          </p>
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <h2 className="text-2xl font-black text-white mb-2 uppercase tracking-tight">
+            Timeline de Investimento
+          </h2>
+          <div className="flex items-baseline gap-2">
+            <p className="text-sm text-slate-400 font-bold uppercase tracking-widest">Aporte Total:</p>
+            <p
+              className="text-3xl font-black text-[#5EEAD4]"
+              aria-label={`Investimento total de ${formatCurrency(TOTAL_INVESTMENT)}`}
+            >
+              {formatCurrency(TOTAL_INVESTMENT)}
+            </p>
+          </div>
+        </div>
+        
+        {/* Progress Summary Mini */}
+        <div className="flex gap-2">
+          {TRANCHES.map(t => (
+            <div 
+              key={t.id} 
+              className={cn(
+                "w-3 h-3 rounded-full",
+                t.status === 'completed' ? "bg-[#5EEAD4]" : t.status === 'active' ? "bg-[#60A5FA] animate-pulse" : "bg-slate-700"
+              )}
+            />
+          ))}
         </div>
       </div>
 
       {/* Timeline Container */}
       <div className="relative">
-        {/* Progress Line */}
+        {/* Progress Line (Vertical on mobile, Horizontal on desktop) */}
         <div
-          className="absolute left-8 top-0 bottom-0 w-1 bg-gray-200"
+          className="absolute left-8 md:left-0 md:top-12 top-0 md:w-full w-1 md:h-1 h-full bg-[#263A59]"
           aria-hidden="true"
         />
 
-        {/* Tranches */}
-        <div className="space-y-8">
+        {/* Tranches Grid */}
+        <div className="flex flex-col md:flex-row gap-6 md:gap-4 relative z-10">
           {TRANCHES.map((tranche, index) => {
             const isExpanded = expandedTranche === tranche.id;
             const isFocused = focusedTranche === tranche.id;
@@ -153,48 +169,27 @@ export const TrancheTimeline: React.FC = () => {
             const progressColor = getProgressColor(progress);
 
             return (
-              <div key={tranche.id} className="relative">
-                {/* Progress indicator on timeline */}
-                {index < TRANCHES.length && (
-                  <div
-                    className="absolute left-8 top-0 w-1 h-full transition-colors duration-300"
-                    style={{
-                      backgroundColor:
-                        tranche.status === 'completed'
-                          ? progressColor
-                          : 'transparent',
-                    }}
-                    aria-hidden="true"
-                  />
-                )}
-
-                {/* Tranche Card */}
+              <div key={tranche.id} className="flex-1 min-w-0">
                 <div
-                  className={`relative pl-20 transition-all duration-300 ${
-                    isFocused
-                      ? 'ring-2 ring-blue-500 ring-offset-2 rounded-lg'
-                      : ''
+                  className={`relative md:pt-20 pl-20 md:pl-0 transition-all duration-300 ${
+                    isFocused ? 'ring-2 ring-[#60A5FA] rounded-xl ring-offset-4 ring-offset-[#101F35]' : ''
                   }`}
                 >
-                  {/* Status Icon */}
+                  {/* Status Indicator (on the line) */}
                   <div
-                    className="absolute left-5 top-0 bg-white p-1 rounded-full"
-                    style={{
-                      borderColor: progressColor,
-                      borderWidth: '2px',
-                    }}
+                    className="absolute left-5 md:left-1/2 md:top-8 -translate-x-1/2 bg-[#101F35] p-2 rounded-full border-4 shadow-lg z-20"
+                    style={{ borderColor: tranche.status === 'pending' ? '#263A59' : progressColor }}
                     aria-hidden="true"
                   >
                     {getStatusIcon(tranche.status)}
                   </div>
 
-                  {/* Tranche Content */}
+                  {/* Tranche Card */}
                   <div
-                    className={`bg-gradient-to-br from-gray-50 to-white border-2 rounded-lg p-6 cursor-pointer transition-all duration-300 hover:shadow-md ${
-                      isExpanded
-                        ? 'shadow-lg border-teal-500'
-                        : 'border-gray-200'
-                    }`}
+                    className={cn(
+                      "bg-[#08111F] border-2 rounded-xl p-5 cursor-pointer transition-all duration-300 hover:shadow-xl",
+                      isExpanded ? "border-teal-500 ring-4 ring-teal-500/10" : "border-[#263A59] hover:border-slate-500"
+                    )}
                     onClick={() => toggleTranche(tranche.id)}
                     onKeyDown={e => handleKeyDown(e, tranche.id)}
                     onFocus={() => setFocusedTranche(tranche.id)}
@@ -202,81 +197,37 @@ export const TrancheTimeline: React.FC = () => {
                     role="button"
                     tabIndex={0}
                     aria-expanded={isExpanded}
-                    aria-label={`Tranche ${tranche.number}: ${formatCurrency(tranche.amount)}, gatilho: ${tranche.trigger}`}
                   >
-                    {/* Tranche Header */}
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <h3 className="text-lg font-bold text-gray-900">
-                            Tranche {tranche.number}
-                          </h3>
-                          <span
-                            className="text-2xl font-bold"
-                            style={{ color: progressColor }}
-                          >
-                            {formatCurrency(tranche.amount)}
-                          </span>
-                        </div>
-                        <div className="flex items-start gap-2">
-                          <span className="text-sm font-medium text-gray-600">
-                            Gatilho:
-                          </span>
-                          <p className="text-sm text-gray-700 flex-1">
-                            {tranche.trigger}
-                          </p>
+                    <div className="flex flex-col gap-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">Tranche {tranche.number}</span>
+                        <div className={cn("transition-transform duration-300", isExpanded ? "rotate-180" : "")}>
+                          <i className="bi bi-chevron-down text-slate-600" />
                         </div>
                       </div>
-
-                      {/* Expand Indicator */}
-                      <div
-                        className={`ml-4 transition-transform duration-300 ${
-                          isExpanded ? 'rotate-180' : ''
-                        }`}
-                        aria-hidden="true"
-                      >
-                        <svg
-                          className="w-5 h-5 text-gray-400"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
+                      
+                      <p className="text-xl font-black text-white leading-none">
+                        {formatCurrency(tranche.amount)}
+                      </p>
+                      
+                      <div className="space-y-1">
+                        <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest block">Gatilho:</span>
+                        <p className="text-xs text-slate-300 font-medium leading-tight line-clamp-2">
+                          {tranche.trigger}
+                        </p>
                       </div>
-                    </div>
 
-                    {/* Deliverables (Expandable) */}
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ${
-                        isExpanded
-                          ? 'max-h-96 opacity-100'
-                          : 'max-h-0 opacity-0'
-                      }`}
-                    >
-                      <div className="pt-4 border-t border-gray-200">
-                        <h4 className="text-sm font-semibold text-gray-700 mb-3">
-                          Entregas:
-                        </h4>
-                        <ul className="space-y-2" role="list">
-                          {tranche.deliverables.map((deliverable, idx) => (
-                            <li
-                              key={idx}
-                              className="flex items-start gap-2 text-sm text-gray-600"
-                            >
-                              <span
-                                className="mt-1 flex-shrink-0"
-                                style={{ color: progressColor }}
-                                aria-hidden="true"
-                              >
-                                •
-                              </span>
-                              <span>{deliverable}</span>
+                      {/* Expandable Deliverables */}
+                      <div className={cn(
+                        "overflow-hidden transition-all duration-500",
+                        isExpanded ? "max-h-96 opacity-100 mt-4 pt-4 border-t border-white/5" : "max-h-0 opacity-0"
+                      )}>
+                        <h4 className="text-[10px] font-black text-[#5EEAD4] uppercase tracking-widest mb-3">Entregas Chave:</h4>
+                        <ul className="space-y-2">
+                          {tranche.deliverables.map((d, i) => (
+                            <li key={i} className="flex gap-2 text-[11px] text-slate-400 leading-snug">
+                              <span className="text-[#5EEAD4]">•</span>
+                              {d}
                             </li>
                           ))}
                         </ul>
@@ -290,46 +241,30 @@ export const TrancheTimeline: React.FC = () => {
         </div>
       </div>
 
-      {/* Summary */}
-      <div className="mt-8 bg-gradient-to-br from-teal-50 to-blue-50 rounded-lg p-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {TRANCHES.map(tranche => {
-            const progress = calculateProgress(tranche.number);
-            const progressColor = getProgressColor(progress);
-
-            return (
-              <div
-                key={tranche.id}
-                className="bg-white rounded-lg p-4 border-2"
-                style={{ borderColor: progressColor }}
-              >
-                <p className="text-xs text-gray-600 mb-1">
-                  T{tranche.number} -{' '}
-                  {tranche.status === 'active'
-                    ? 'Ativo'
-                    : tranche.status === 'completed'
-                      ? 'Completo'
-                      : 'Pendente'}
-                </p>
-                <p
-                  className="text-xl font-bold"
-                  style={{ color: progressColor }}
-                >
-                  {formatCurrency(tranche.amount)}
-                </p>
-              </div>
-            );
-          })}
+      {/* Summary Logic Info */}
+      <div className="mt-12 flex flex-col sm:flex-row gap-6 p-6 bg-white/5 border border-white/10 rounded-2xl">
+        <div className="flex-1 flex gap-4">
+          <div className="w-12 h-12 flex-shrink-0 bg-[#F5A623]/20 rounded-xl flex items-center justify-center text-[#F5A623]">
+            <i className="bi bi-shield-check text-2xl" />
+          </div>
+          <div>
+            <h4 className="text-xs font-black text-white uppercase tracking-widest mb-1">Proteção ao Investidor</h4>
+            <p className="text-[11px] text-slate-400 leading-relaxed">
+              As tranches vinculadas a marcos (milestones) garantem que o capital só seja liberado conforme o risco do projeto diminui e a tração aumenta.
+            </p>
+          </div>
         </div>
-      </div>
-
-      {/* Accessibility Instructions */}
-      <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
-        <p className="text-xs text-blue-900">
-          <strong>Navegação:</strong> Use Tab para navegar entre tranches, Enter
-          ou Espaço para expandir/recolher detalhes. Passe o mouse ou toque para
-          revelar entregas.
-        </p>
+        <div className="flex-1 flex gap-4 border-t sm:border-t-0 sm:border-l border-white/10 pt-6 sm:pt-0 sm:pl-6">
+          <div className="w-12 h-12 flex-shrink-0 bg-[#60A5FA]/20 rounded-xl flex items-center justify-center text-[#60A5FA]">
+            <i className="bi bi-lightning-charge text-2xl" />
+          </div>
+          <div>
+            <h4 className="text-xs font-black text-white uppercase tracking-widest mb-1">Agilidade na Execução</h4>
+            <p className="text-[11px] text-slate-400 leading-relaxed">
+              Cada liberação financia o próximo ciclo de crescimento, mantendo o time focado em métricas que geram valor real e escalabilidade.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

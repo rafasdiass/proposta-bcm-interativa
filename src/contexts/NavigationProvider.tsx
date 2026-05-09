@@ -10,6 +10,7 @@ import {
   generateSectionFragment,
   getScrollBehavior,
 } from '../utils/navigation';
+import { proposalPages } from '../data/pages';
 
 // Navigation action types
 type NavigationAction =
@@ -25,7 +26,7 @@ type NavigationAction =
 const initialState: NavigationState = {
   mode: 'landing',
   currentSection: 0,
-  totalSections: 22, // Based on the 22 sections from requirements
+  totalSections: proposalPages.length,
   isTransitioning: false,
 };
 

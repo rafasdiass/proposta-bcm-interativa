@@ -165,7 +165,7 @@ export function ModeToggleDemo() {
           <li>✅ 15.2: Navegação completa por teclado</li>
           <li>✅ 15.5: ARIA labels apropriados</li>
           <li>✅ Preserva posição da seção atual</li>
-          <li>✅ Estilo Tailwind seguindo design system</li>
+          <li>✅ Estilo Bootstrap seguindo design system</li>
         </ul>
       </div>
     </div>

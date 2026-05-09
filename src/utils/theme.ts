@@ -58,14 +58,14 @@ export function createCSSCustomProperties(): Record<string, string> {
 
   // Add spacing variables
   Object.entries(theme.spacing).forEach(([key, value]) => {
-    properties[`--spacing-${key}`] = value;
+    properties[`--app-spacing-${key}`] = value;
   });
 
   return properties;
 }
 
 /**
- * Generate Tailwind class string with conditional classes
+ * Generate class string with conditional classes
  */
 export function cn(...classes: (string | undefined | null | false)[]): string {
   return classes.filter(Boolean).join(' ');

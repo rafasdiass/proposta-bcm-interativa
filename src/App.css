@@ -2,9 +2,6 @@
 
 .App {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: white;
   background: linear-gradient(
     135deg,
@@ -40,22 +37,6 @@
   font-size: 1.125rem;
   margin-bottom: 0.5rem;
   opacity: 0.9;
-}
-
-.text-sm {
-  font-size: 0.875rem;
-}
-
-.text-xs {
-  font-size: 0.75rem;
-}
-
-.text-gray-600 {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.mt-4 {
-  margin-top: 1rem;
 }
 
 /* Loading states */
@@ -106,9 +87,6 @@
 
 .section-container {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 4rem 0;
 }
 

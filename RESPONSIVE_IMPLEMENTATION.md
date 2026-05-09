@@ -249,16 +249,16 @@ All interactive elements include:
 ## Browser Compatibility Notes
 
 ### CSS Features Used
-- Tailwind CSS 4 with modern CSS features
+- Bootstrap CSS 5 with modern CSS features
 - CSS Grid (supported in all modern browsers)
 - Flexbox (supported in all modern browsers)
 - CSS Custom Properties (supported in all modern browsers)
 - `touch-manipulation` (supported in all modern browsers)
-- `min-h-[44px]` (Tailwind arbitrary values)
+- `min-h-[44px]`
 
 ### Fallbacks
 - No special fallbacks needed as all features are widely supported
-- Tailwind's autoprefixer handles vendor prefixes automatically
+- Bootstrap CSS ships with vendor-compatible styles
 
 ## Performance Considerations
 - No additional JavaScript for responsive behavior

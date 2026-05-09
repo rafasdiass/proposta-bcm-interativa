@@ -90,7 +90,7 @@ export const StickyCTA: React.FC<StickyCTAProps> = ({
     <>
       {/* Sticky CTA Bar */}
       <div
-        className={`fixed ${positionClasses} z-40 bg-white border-t-2 border-gray-200 shadow-strong ${className}`}
+        className={`fixed ${positionClasses} z-40 bg-[#08111F]/95 border-t-2 border-[#263A59] shadow-strong backdrop-blur-xl ${className}`}
         role="region"
         aria-label="Ações principais da proposta"
       >
@@ -163,7 +163,7 @@ export const StickyCTA: React.FC<StickyCTAProps> = ({
           {/* Expanded Menu */}
           {isMobileMenuOpen && (
             <div
-              className="border-t border-gray-200 bg-gray-50 px-4 py-3 space-y-2"
+              className="border-t border-[#263A59] bg-[#101F35] px-4 py-3 space-y-2"
               role="menu"
               aria-label="Menu de ações adicionais"
             >

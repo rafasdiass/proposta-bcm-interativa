@@ -14,7 +14,7 @@ export const theme = {
     purple: '#8B7EC8', // purple-accent
     base: {
       light: '#F8F9FA', // light base
-      dark: '#102642', // dark base
+      dark: '#08111F', // dark base
     },
 
     // Semantic color mappings
@@ -148,8 +148,8 @@ export type ThemeBreakpoints = keyof typeof theme.breakpoints;
 // Section theme variants as specified in requirements
 export const sectionVariants = {
   light: {
-    background: theme.colors.base.light,
-    text: theme.colors.gray[900],
+    background: theme.colors.base.dark,
+    text: '#ffffff',
     className: 'section-light',
   },
   dark: {

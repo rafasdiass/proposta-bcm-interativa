@@ -163,8 +163,8 @@ export function ModuleCards({
     const styles = {
       teal: {
         border: 'border-t-4 border-t-[#2D9B8A]',
-        icon: 'text-[#2D9B8A]',
-        title: 'text-[#2D9B8A]',
+        icon: 'text-[#5EEAD4]',
+        title: 'text-[#5EEAD4]',
       },
       amber: {
         border: 'border-t-4 border-t-[#F5A623]',
@@ -173,13 +173,13 @@ export function ModuleCards({
       },
       blue: {
         border: 'border-t-4 border-t-[#1B3A6B]',
-        icon: 'text-[#1B3A6B]',
-        title: 'text-[#1B3A6B]',
+        icon: 'text-[#60A5FA]',
+        title: 'text-[#60A5FA]',
       },
       purple: {
         border: 'border-t-4 border-t-[#8B7EC8]',
-        icon: 'text-[#8B7EC8]',
-        title: 'text-[#8B7EC8]',
+        icon: 'text-[#C4B5FD]',
+        title: 'text-[#C4B5FD]',
       },
     };
     return styles[variant];
@@ -187,7 +187,7 @@ export function ModuleCards({
 
   return (
     <div
-      className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 ${className}`}
+      className={`grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 ${className}`}
     >
       {modules.map(module => {
         const isExpanded = expandedModules.has(module.id);
@@ -197,9 +197,9 @@ export function ModuleCards({
           <div
             key={module.id}
             className={`
-              bg-white rounded-lg shadow-md overflow-hidden
+              bg-[#101F35] border border-[#263A59] rounded-lg shadow-md shadow-black/20 overflow-hidden
               transition-all duration-300 ease-in-out
-              hover:shadow-lg
+              hover:border-[#5EEAD4]
               ${variantStyles.border}
               ${isExpanded ? 'ring-2 ring-offset-2 ring-gray-300' : ''}
             `}
@@ -207,15 +207,15 @@ export function ModuleCards({
             <button
               onClick={() => toggleModule(module.id)}
               onKeyDown={e => handleKeyDown(e, module.id)}
-              className="w-full text-left p-3 sm:p-4 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 min-h-[44px] touch-manipulation"
+              className="w-full text-left p-3 sm:p-4 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 min-h-[44px] touch-manipulation bg-transparent border-0 shadow-none"
               aria-expanded={isExpanded}
               aria-controls={`module-content-${module.id}`}
               type="button"
             >
-              <div className="flex items-start justify-between gap-2">
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider flex-shrink-0">
+              <div className="flex items-start justify-between gap-2 w-full">
+                <div className="min-w-0 flex-1 w-full">
+                  <div className="flex items-baseline gap-2 mb-1 w-full">
+                    <span className="text-xs font-bold text-slate-400 uppercase tracking-wider flex-shrink-0">
                       {module.number}
                     </span>
                     <h3
@@ -226,7 +226,7 @@ export function ModuleCards({
                   </div>
 
                   {/* Always show description preview */}
-                  <p className="text-xs sm:text-sm text-gray-600 line-clamp-2">
+                  <p className="prose-measure text-xs sm:text-sm text-slate-300 w-full">
                     {module.description}
                   </p>
                 </div>
@@ -251,8 +251,8 @@ export function ModuleCards({
               `}
               aria-hidden={!isExpanded}
             >
-              <div className="px-3 sm:px-4 pb-3 sm:pb-4 pt-2 border-t border-gray-100">
-                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
+              <div className="px-3 sm:px-4 pb-3 sm:pb-4 pt-2 border-t border-white/10">
+                <p className="prose-measure text-xs sm:text-sm text-slate-200 leading-relaxed">
                   {module.description}
                 </p>
               </div>

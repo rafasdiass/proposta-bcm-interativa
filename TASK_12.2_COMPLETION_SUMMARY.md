@@ -133,7 +133,7 @@ Color Contrast: 6/7 passed
 **Features:**
 - Touch-friendly targets (44x44px minimum)
 - Responsive text sizes (16px minimum)
-- Flexible layouts with Tailwind CSS
+- Flexible layouts with Bootstrap CSS
 - No maximum-scale restriction
 
 ## Performance Optimizations Verified
