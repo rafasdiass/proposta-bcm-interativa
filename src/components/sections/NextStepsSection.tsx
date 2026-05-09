@@ -1,4 +1,3 @@
-import { IntentForm } from '../interactive/IntentForm';
 import { NarrativeSection } from './NarrativeSection';
 
 export default function NextStepsSection() {

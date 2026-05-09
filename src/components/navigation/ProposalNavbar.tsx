@@ -14,8 +14,8 @@ const pageIcons: Record<string, string> = {
 
 export function ProposalNavbar() {
   const { state, actions } = useNavigation();
-  const isFirst = state.currentSection === 0;
-  const isLast = state.currentSection === proposalPages.length - 1;
+
+
 
   return (
     <header

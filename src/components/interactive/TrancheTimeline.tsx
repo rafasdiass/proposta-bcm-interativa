@@ -162,7 +162,7 @@ export const TrancheTimeline: React.FC = () => {
 
         {/* Tranches Grid */}
         <div className="flex flex-col md:flex-row gap-6 md:gap-4 relative z-10">
-          {TRANCHES.map((tranche, index) => {
+          {TRANCHES.map((tranche) => {
             const isExpanded = expandedTranche === tranche.id;
             const isFocused = focusedTranche === tranche.id;
             const progress = calculateProgress(tranche.number);
