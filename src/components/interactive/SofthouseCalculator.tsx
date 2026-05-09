@@ -73,7 +73,7 @@ export const SofthouseCalculator: React.FC = () => {
       <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8">
         <h2 className="text-xl sm:text-2xl font-black text-white mb-2">Simulador de Eficiência em Tecnologia</h2>
         <p className="text-slate-400 text-sm leading-relaxed max-w-3xl">
-          Como parceiro fundador, o Gradual acessa o time da LaVita Code com <strong>custos reduzidos</strong>. 
+          Como investidor âncora, o Gradual acessa o time da LaVita Code com <strong>custos reduzidos</strong>. 
           Isso gera um retorno direto: a economia mensal acumulada "paga" o aporte inicial de {formatCurrency(TOTAL_INVESTMENT)}.
         </p>
       </div>
@@ -155,7 +155,7 @@ export const SofthouseCalculator: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-[10px] font-black text-[#5EEAD4] uppercase tracking-[0.2em]">Retorno em Eficiência</p>
-                  <p className="text-xs text-slate-300 font-medium leading-relaxed">Você recebe o mesmo serviço de ponta, mas paga 25% a menos por ser sócio-fundador.</p>
+                  <p className="text-xs text-slate-300 font-medium leading-relaxed">Você recebe o mesmo serviço de ponta, mas paga 25% a menos por ser investidor âncora.</p>
                 </div>
               </div>
             </div>

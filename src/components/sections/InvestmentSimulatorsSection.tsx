@@ -61,7 +61,7 @@ export default function InvestmentSimulatorsSection() {
             <h3 className="text-2xl font-black text-white mb-4">Escolha Estratégica: Janela de Oportunidade</h3>
             <p className="text-slate-400 text-sm leading-relaxed">
               O BCM está em uma fase única onde o primeiro parceiro clínico tem o poder de ditar o padrão técnico de todo o mercado. 
-              Abaixo, a comparação real entre entrar agora como fundador ou esperar para entrar como cliente.
+              Abaixo, a comparação real entre entrar agora como investidor âncora ou esperar para entrar como cliente.
             </p>
           </div>
           <ComparisonTable showAnimationControl={false} />

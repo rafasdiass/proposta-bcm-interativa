@@ -25,7 +25,7 @@ export default function WhyGradualSection() {
         },
         {
           title: 'Sinal ao mercado',
-          body: 'Um parceiro fundador forte reduz a percepcao de risco para os proximos clientes e investidores.',
+          body: 'Um investidor âncora forte reduz a percepcao de risco para os proximos clientes e investidores.',
           icon: Signal,
         },
       ]}

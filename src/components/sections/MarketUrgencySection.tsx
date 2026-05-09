@@ -17,7 +17,7 @@ export default function MarketUrgencySection() {
         },
         {
           title: 'Escassez de parceiros',
-          body: 'A posicao de parceiro fundador deve ser limitada para preservar profundidade de validacao e foco tecnico.',
+          body: 'A posicao de investidor âncora deve ser limitada para preservar profundidade de validacao e foco tecnico.',
           icon: ShieldAlert,
         },
         {
